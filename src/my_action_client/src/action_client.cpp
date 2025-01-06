@@ -12,6 +12,8 @@
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <t3_action_msg/action/move.hpp>
 
+using namespace std::chrono_literals;
+
 class MyActionClient : public rclcpp::Node {
 public:
   using Move = t3_action_msg::action::Move;
@@ -26,9 +28,8 @@ public:
         this->get_node_waitables_interface(), "move_robot_as");
     // As soon as I was writing out why I didn't agree, I realized it is because
     // we need to spin_some and attempt contacting the server.
-    this->timer_ =
-        this->create_wall_timer(std::chrono::milliseconds(500),
-                                std::bind(&MyActionClient::send_goal, this));
+    this->timer_ = this->create_wall_timer(
+        500ms, std::bind(&MyActionClient::send_goal, this));
   }
 
   auto is_goal_done() const -> bool { return goal_done_; }
