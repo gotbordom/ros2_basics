@@ -19,18 +19,17 @@ public:
 
   explicit MyActionClient(
       const rclcpp::NodeOptions &node_options = rclcpp::NodeOptions())
-      : Node("my_action_client"), goal_done_(false) {
+      : Node("my_action_client", node_options), goal_done_(false) {
     this->client_ptr_ = rclcpp_action::create_client<Move>(
         this->get_node_base_interface(), this->get_node_graph_interface(),
         this->get_node_logging_interface(),
         this->get_node_waitables_interface(), "move_robot_as");
+    // As soon as I was writing out why I didn't agree, I realized it is because
+    // we need to spin_some and attempt contacting the server.
+    this->timer_ =
+        this->create_wall_timer(std::chrono::milliseconds(500),
+                                std::bind(&MyActionClient::send_goal, this));
   }
-
-  // As soon as I was writing out why I didn't agree, I realized it is because
-  // we need to spin_some and attempt contacting the server.
-  this->timer_ =
-      this->create_wall_timer(std::chrono::milliseconds(500),
-                              std::bind(&MyActionClient::send_goal, this));
 
   auto is_goal_done() const -> bool { return goal_done_; }
   auto send_goal() -> void {
