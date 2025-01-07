@@ -25,7 +25,7 @@ public:
     this->client_ptr_ = rclcpp_action::create_client<Move>(
         this->get_node_base_interface(), this->get_node_graph_interface(),
         this->get_node_logging_interface(),
-        this->get_node_waitables_interface(), "move_robot_as");
+        this->get_node_waitables_interface(), "move_robot_as_2");
     // As soon as I was writing out why I didn't agree, I realized it is because
     // we need to spin_some and attempt contacting the server.
     this->timer_ = this->create_wall_timer(
