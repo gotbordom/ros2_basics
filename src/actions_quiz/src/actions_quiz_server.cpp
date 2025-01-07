@@ -65,11 +65,13 @@ private:
     RCLCPP_INFO(this->get_logger(), "Executing goal");
     const auto goal = goal_handle->get_goal();
     auto feedback = std::make_shared<Distance::Feedback>();
-    auto &current_dist = feedback->current_dist;
     auto result = std::make_shared<Distance::Result>();
 
     // Getting everything initialized
-    current_dist = 0.0;
+    auto publisher_msg = std_msgs::msg::Float64();
+    publisher_msg.data = 0.0;
+    feedback->current_dist = 0.0;
+    result->total_dist = 0.0;
     result->status = false;
     rclcpp::Rate loop_rate(1);
 
@@ -86,10 +88,12 @@ private:
       // Get distance traveled
       // update currnet_dist
       // DEBUGGING (AT) Just making sure this will compile and print out  data
-      current_dist += 1;
+      publisher_msg.data += 1.0;
+      feedback->current_dist = publisher_msg.data;
 
       // publish the feedback message
       goal_handle->publish_feedback(feedback);
+      feedback_publisher_->publish(publisher_msg);
       RCLCPP_INFO(this->get_logger(), "Publish feedback");
 
       loop_rate.sleep();
@@ -98,8 +102,9 @@ private:
     // Check if goal is done
     if (rclcpp::ok()) {
       result->status = true;
-      result->total_dist = current_dist;
+      result->total_dist = publisher_msg.data;
       goal_handle->succeed(result);
+      feedback_publisher_->publish(publisher_msg);
       RCLCPP_INFO(this->get_logger(), "Goal succeeded");
     }
   }
@@ -108,7 +113,6 @@ private:
   rclcpp_action::Server<Distance>::SharedPtr action_server_;
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr feedback_publisher_;
   rclcpp::TimerBase::SharedPtr feedback_timer_;
-  std_msgs::msg::Float64 current_dist_;
 };
 
 auto main(int argc, char *argv[]) -> int {
