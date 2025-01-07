@@ -11,7 +11,9 @@
 
   <depend>rclcpp</depend>
   <depend>rclcpp_action</depend>
-  <depend>t3_action_msg</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+
   <depend>actions_quiz_msg</depend>
 
   <test_depend>ament_lint_auto</test_depend>

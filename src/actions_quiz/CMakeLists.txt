@@ -9,7 +9,8 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
-find_package(t3_action_msg REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(actions_quiz_msg REQUIRED)
 
 if(BUILD_TESTING)
@@ -27,8 +28,8 @@ endif()
 add_executable(actions_quiz_server_node src/actions_quiz_server.cpp)
 add_executable(actions_quiz_client_node src/actions_quiz_client.cpp)
 
-ament_target_dependencies(actions_quiz_server_node rclcpp rclcpp_action actions_quiz_msg)
-ament_target_dependencies(actions_quiz_client_node rclcpp rclcpp_action actions_quiz_msg)
+ament_target_dependencies(actions_quiz_server_node rclcpp rclcpp_action std_msgs geometry_msgs actions_quiz_msg)
+ament_target_dependencies(actions_quiz_client_node rclcpp rclcpp_action std_msgs geometry_msgs actions_quiz_msg)
 
 install(TARGETS
 	actions_quiz_server_node
