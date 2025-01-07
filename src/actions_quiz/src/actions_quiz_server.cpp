@@ -105,8 +105,14 @@ private:
       }
 
       // Get distance traveled
-      // update currnet_dist
-      // DEBUGGING (AT) Just making sure this will compile and print out  data
+      // NOTE: This isn't the best solution  for a few reaons
+      // 1. This wont take into account velocity changes that happen
+      //    within each 1 second iteration only the most recent
+      // 2. small angle approx may not actually apply here.
+      // So this  should for sure pass IF:
+      // 1. we expect absolute distance traveled
+      // 2. We only go straight
+      // 3. The linear velocity is changed no faster that one change per second.
       total_distance_msg.data += std::abs(linear_velocity_x_);
       total_distance_msg.data += std::abs(angular_velocity_z_);
       feedback->current_dist = total_distance_msg.data;
