@@ -1,10 +1,10 @@
 // std headers
+#include <functional>
 
 // third party headers
 #include "geometry_msgs/msg/detail/twist__struct.hpp"
 #include "rclcpp/subscription.hpp"
 #include "rclcpp/utilities.hpp"
-#include <functional>
 #include <geometry_msgs/msg/twist.hpp>
 #include <rclcpp/rclcpp.hpp>
 
@@ -16,6 +16,8 @@ public:
     // create a subscription
     // Question (AT) while most of this I was able to mostly cobble together,
     // I don't understand why I needed the placeholders::_1
+    // Answer: They are placeholders for arguments being passed to the callback
+    // function.
     subscription_ = this->create_subscription<geometry_msgs::msg::Twist>(
         "cmd_vel", 10,
         std::bind(&SimpleSubscriber::topic_callback, this,

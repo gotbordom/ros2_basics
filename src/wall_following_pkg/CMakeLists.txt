@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(right_wall_following_pkg)
+project(wall_following_pkg)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -19,6 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -32,17 +33,17 @@ if(BUILD_TESTING)
 endif()
 
 # add executable
-add_executable(right_wall_following src/right_wall_following.cpp)
+add_executable(wall_following src/wall_following.cpp)
 
 # target link libs
-ament_target_dependencies(right_wall_following
+ament_target_dependencies(wall_following
 	rclcpp
 	geometry_msgs	
 )
 
 # install binaries to lib
 install(TARGETS
-	right_wall_following
+	wall_following
 	DESTINATION lib/${PROJECT_NAME}
 )
 
