@@ -15,18 +15,26 @@
 
 // project headers
 
-enum class WallFollowingAlgorithm { LeftHandSide = 0, RightHandSide = 1 };
+enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
 
 class WallFollowerNode : public rclcpp::Node {
 public:
-  WallFollowerNode() : Node("wall_follower_node") {
+  WallFollowerNode(WallFollowingDirection wall_to_follow =
+                       WallFollowingDirection::LeftHandSide,
+                   std::string node_name = "wall_follower_node",
+                   std::string subscription_channel = "scan",
+                   std::string publisher_channel = "cmd_vel")
+      : Node(node_name), wall_to_follow_(wall_to_follow),
+        subscription_channel_(subscription_channel),
+        publisher_channel_(publisher_channel) {
+
+    // Create pub / sub
     subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
-        "cmd_vel", 10,
+        subscription_channel_, 10,
         std::bind(&WallFollowerNode::topic_callback, this,
                   std::placeholders::_1));
-
-    publisher_ =
-        this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
+    publisher_ = this->create_publisher<geometry_msgs::msg::Twist>(
+        publisher_channel_, 10);
   }
 
 private:
@@ -36,7 +44,7 @@ private:
                 msg->ranges.size());
   }
 
-  WallFollowingAlgorithm wall_following_algorithm_;
+  WallFollowingDirection wall_to_follow_;
   std::string subscription_channel_, publisher_channel_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;

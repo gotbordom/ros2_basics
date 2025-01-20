@@ -6,7 +6,7 @@ def generate_launch_description():
         Node(
             package="wall_following_pkg",
             executable="wall_follower_node",
-            output="system",
+            output="screen",
             emulate_tty=True
         )
     ])
