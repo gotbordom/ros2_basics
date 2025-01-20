@@ -15,9 +15,14 @@
 
 // project headers
 
-enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
+enum class WallFollowingDirection
+{
+  LeftHandSide = 0,
+  RightHandSide = 1
+};
 
-class WallFollowerNode : public rclcpp::Node {
+class WallFollowerNode : public rclcpp::Node
+{
 public:
   WallFollowerNode(WallFollowingDirection wall_to_follow =
                        WallFollowingDirection::LeftHandSide,
@@ -26,7 +31,8 @@ public:
                    std::string publisher_channel = "cmd_vel")
       : Node(node_name), wall_to_follow_(wall_to_follow),
         subscription_channel_(subscription_channel),
-        publisher_channel_(publisher_channel) {
+        publisher_channel_(publisher_channel)
+  {
 
     // Create pub / sub
     subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
@@ -39,7 +45,8 @@ public:
 
 private:
   auto topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
-      -> void {
+      -> void
+  {
     RCLCPP_INFO(this->get_logger(), "Got range of size: %d\n",
                 msg->ranges.size());
   }
@@ -50,7 +57,8 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;
 };
 
-auto main(int argc, char *argv[]) -> int {
+auto main(int argc, char *argv[]) -> int
+{
   // init the rcl
   rclcpp::init(argc, argv);
   // spin the node
