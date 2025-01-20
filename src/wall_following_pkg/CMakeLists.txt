@@ -18,6 +18,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
@@ -32,26 +33,29 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# add executable
-add_executable(wall_following src/wall_following.cpp)
-
-# target link libs
-ament_target_dependencies(wall_following
-	rclcpp
-	geometry_msgs	
+# Build the exe
+add_executable(wall_follower_node
+	src/wall_follower.cpp
 )
 
-# install binaries to lib
-install(TARGETS
-	wall_following
+# Link the deps
+ament_target_dependencies(wall_follower_node
+	rclcpp
+	std_msgs
+	geometry_msgs
+	sensor_msgs
+)
+
+# install exe objects
+install(
+	TARGETS wall_follower_node
 	DESTINATION lib/${PROJECT_NAME}
 )
 
-# install shared files
-install(DIRECTORY
-	launch
+# install shared launch files, etc.
+install(
+	DIRECTORY launch
 	DESTINATION share/${PROJECT_NAME}
 )
-
 
 ament_package()
