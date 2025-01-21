@@ -53,6 +53,8 @@ public:
     publisher_ = this->create_publisher<geometry_msgs::msg::Twist>(
         publisher_channel_, 10);
 
+    // TODO - Lol... I need each of these in their own group so that they can
+    // run in parallel
     side_scan_publisher_ = this->create_publisher<sensor_msgs::msg::LaserScan>(
         "debug_side_scan", 10);
     front_scan_publisher_ = this->create_publisher<sensor_msgs::msg::LaserScan>(
