@@ -15,6 +15,15 @@
 
 // project headers
 
+/// @brief I am thinking about next steps. First I want to solve a simple
+///        solution however, I can already thinkof ways it wouldn't work. So
+///        next steps are fiting a curve, and / or other possible options. This
+///        is mostly a place holder.
+enum class WallFollowingAlgorithm {
+  SimpleWallFollowing = 0,
+  FitCurveToWall = 1
+};
+
 /// @brief Enum to make code clearer when determining direction of wall
 /// following in later code.
 enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
@@ -22,6 +31,8 @@ enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
 /// @brief WallFollowerNode class that handles listening to the laser scanner
 ///        then determining next velocity command, and publishing it to the
 ///        correct topic.
+///        The aim is the have the robot follow the wall at a distance of
+///        approximately 0.2 -> 0.3 meters
 class WallFollowerNode : public rclcpp::Node {
 public:
   WallFollowerNode(WallFollowingDirection wall_to_follow =
@@ -42,8 +53,10 @@ public:
     publisher_ = this->create_publisher<geometry_msgs::msg::Twist>(
         publisher_channel_, 10);
 
-    wall_publisher_ =
-        this->create_publisher<sensor_msgs::msg::LaserScan>("debug_scan", 10);
+    side_scan_publisher_ = this->create_publisher<sensor_msgs::msg::LaserScan>(
+        "debug_side_scan", 10);
+    front_scan_publisher_ = this->create_publisher<sensor_msgs::msg::LaserScan>(
+        "debug_front_scan", 10);
   }
 
 private:
@@ -67,26 +80,62 @@ private:
     // Looking at the data with a debugging topic and rviz2, this assumption is
     // true.
 
-    auto filtered_scan = *msg;
-    for (size_t i = 0; i < filtered_scan.ranges.size(); ++i) {
+    // TODO: Pull this out out later when I have it working and am ready to move
+    //       onto a more complex solution to solve problems I know this one will
+    //       have.
+    // Simple solution:
+    // ASSUMPTIONS:
+    // 1. Robot is approx 1m x 1m
+    // 2. I only need to see about as much of the wall being followed as the
+    //    dimensions of the car, and I know we are aiming to stay within 0.2 -
+    //    0.3 meters I can assume that the angle needed to get "enough data"
+    //    would be 90 degrees.
+    //    sin(theta) = O / H
+    //    theta = arcsin( O / H )
+    //    where O = distance from the sensor to the front of the robot
+    //    where H = distance from the sensor to the wall perpendicular to motion
+    //    where theta = 1/2 the angle needed to scan the width of the robot
+    //    where sensor is placed center of mass of the robot (definetly an
+    //    assumption)
+    //    Then O = 0.5m, H = ~ (0.2 + 0.5) -> (0.3 + 0.5) ~= ( 0.8 + 0.7 ) / 2 =
+    //    0.75
+    //    Then arcsin(0.5 / 0.75) ~= 42 * 2 = 84 degrees worth of scanner
+    //    data. Rounded to 90 for simplicity and just extra data.
+
+    // If I am following the Left Hand Side, then we need data from
+    // 1/4 * pi -> 3/4 * pi
+    // If I am following the Right Hand Side, then we need data from
+    // 5/4 * pi -> 7/4 * pi
+    // Watching for the wall in front should always be the data in
+    // [0,1/4 * pi] && [7/4 * pi, 2 * pi]
+
+    const double PI = 3.14;
+    auto min_meters_from_wall = 0.2;
+    auto max_meters_from_wall = 0.3;
+    auto side_scan = *msg;
+    auto front_scan = *msg;
+    for (size_t i = 0; i < msg->ranges.size(); ++i) {
       float angle = msg->angle_min + i * msg->angle_increment;
-      // If angle is outside 0->pi set it to inf
-      if (angle > 3.14) {
-        filtered_scan.ranges[i] = std::numeric_limits<float>::infinity();
+
+      // Get distances to objects on the side we are following
+      if (wall_to_follow_ == WallFollowingDirection::LeftHandSide) {
+        if (angle < PI / 4 && angle > PI * 3 / 4) {
+          side_scan.ranges[i] = std::numeric_limits<float>::infinity();
+        }
+      } else if (wall_to_follow_ == WallFollowingDirection::RightHandSide) {
+        if (angle < PI * 5 / 4 && angle > PI * 7 / 4) {
+          side_scan.ranges[i] = std::numeric_limits<float>::infinity();
+        }
+      }
+
+      // Get distances to objects in front
+      if (angle > PI / 4 && angle < PI * 3 / 4) {
+        front_scan.ranges[i] = std::numeric_limits<float>::infinity();
       }
     }
-    wall_publisher_->publish(filtered_scan);
 
-    // ------------- DEBUGGING LASER SCAN MSG ------------------
-
-    // split ranges into left
-
-    // clean up range data
-    // auto it = std::remove_if(ranges.begin(), ranges.end(), [&msg](float num)
-    // {
-    //   return (num >= msg.range_max || num <= msg.range_min);
-    // });
-    // ranges.erase(it, ranges.end());
+    side_scan_publisher_->publish(side_scan);
+    side_scan_publisher_->publish(front_scan);
   }
 
   WallFollowingDirection wall_to_follow_;
@@ -95,7 +144,10 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr subscription_;
 
   // DEBUGGING OUTPUT
-  rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr wall_publisher_;
+  rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr
+      side_scan_publisher_;
+  rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr
+      front_scan_publisher_;
 };
 
 auto main(int argc, char *argv[]) -> int {
