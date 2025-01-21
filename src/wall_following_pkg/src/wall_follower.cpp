@@ -5,6 +5,7 @@
 
 // third party headers
 #include "geometry_msgs/msg/detail/twist__struct.hpp"
+#include "rclcpp/callback_group.hpp"
 #include "rclcpp/publisher.hpp"
 #include "rclcpp/subscription.hpp"
 #include "rclcpp/utilities.hpp"
@@ -137,7 +138,7 @@ private:
     }
 
     side_scan_publisher_->publish(side_scan);
-    side_scan_publisher_->publish(front_scan);
+    front_scan_publisher_->publish(front_scan);
   }
 
   WallFollowingDirection wall_to_follow_;
