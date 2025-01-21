@@ -1,5 +1,6 @@
 // std headers
 #include <functional>
+#include <limits>
 #include <memory>
 #include <string>
 
@@ -113,8 +114,6 @@ private:
     // [0,1/4 * pi] && [7/4 * pi, 2 * pi]
 
     const double PI = 3.14;
-    auto min_meters_from_wall = 0.2;
-    auto max_meters_from_wall = 0.3;
     auto side_scan = *msg;
     auto front_scan = *msg;
 
@@ -126,22 +125,54 @@ private:
       // Get distances to objects on the side we are following
       if (wall_to_follow_ == WallFollowingDirection::LeftHandSide) {
         if (!(angle > PI / 4 && angle < PI * 3 / 4)) {
-          side_scan.ranges[i] = std::numeric_limits<float>::infinity();
+          side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
       } else if (wall_to_follow_ == WallFollowingDirection::RightHandSide) {
         if (!(angle > PI * 5 / 4 && angle < PI * 7 / 4)) {
-          side_scan.ranges[i] = std::numeric_limits<float>::infinity();
+          side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
       }
 
       // Get distances to objects in front
       if (!(angle < PI / 4 || angle > PI * 7 / 4)) {
-        front_scan.ranges[i] = std::numeric_limits<float>::infinity();
+        front_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
       }
     }
 
+    // Publish raw debugging output
     side_scan_publisher_->publish(side_scan);
     front_scan_publisher_->publish(front_scan);
+
+    // Filter each dataset
+    // TODO For optimization, I can now run filtering BEFORE splitting
+    // my data into two datasets now that I know it is actually getting the
+    // expected ranges. ( This would remove two for loops over 360+ data points)
+    for (size_t i = 0; i < side_scan.ranges.size(); ++i) {
+      // First remove the data if it is ourside the bounds of the hardware
+      // per the published message.
+      auto value_to_check = side_scan.ranges[i];
+      auto value_nan = std::isnan(value_to_check);
+      auto value_out_of_bounds = value_to_check < side_scan.range_min ||
+                                 value_to_check > side_scan.range_max;
+      if (!value_nan && value_out_of_bounds) {
+        side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
+      }
+    }
+
+    for (size_t i = 0; i < front_scan.ranges.size(); ++i) {
+      // First remove the data if it is ourside the bounds of the hardware
+      // per the published message.
+      auto value_to_check = front_scan.ranges[i];
+      auto value_nan = std::isnan(value_to_check);
+      auto value_out_of_bounds = value_to_check < side_scan.range_min ||
+                                 value_to_check > side_scan.range_max;
+      if (!value_nan && value_out_of_bounds) {
+        front_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
+      }
+    }
+
+    auto min_meters_from_wall = 0.2;
+    auto max_meters_from_wall = 0.3;
   }
 
   WallFollowingDirection wall_to_follow_;
