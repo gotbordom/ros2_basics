@@ -132,7 +132,9 @@ private:
       }
 
       // Get distances to objects in front
-      if (angle > PI / 4 && angle < PI * 3 / 4) {
+      // NOTE: There is a way to break out this logic... and I don't really want
+      // to at the moment because I want to solve this quickly
+      if (!(angle < PI / 4 || angle > PI * 7 / 4)) {
         front_scan.ranges[i] = std::numeric_limits<float>::infinity();
       }
     }
