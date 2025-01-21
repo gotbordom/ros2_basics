@@ -117,23 +117,24 @@ private:
     auto max_meters_from_wall = 0.3;
     auto side_scan = *msg;
     auto front_scan = *msg;
+
+    // NOTE: Logic here uses ! because I want to set everything but
+    // those regions to inf.
     for (size_t i = 0; i < msg->ranges.size(); ++i) {
       float angle = msg->angle_min + i * msg->angle_increment;
 
       // Get distances to objects on the side we are following
       if (wall_to_follow_ == WallFollowingDirection::LeftHandSide) {
-        if (angle < PI / 4 && angle > PI * 3 / 4) {
+        if (!(angle > PI / 4 && angle < PI * 3 / 4)) {
           side_scan.ranges[i] = std::numeric_limits<float>::infinity();
         }
       } else if (wall_to_follow_ == WallFollowingDirection::RightHandSide) {
-        if (angle < PI * 5 / 4 && angle > PI * 7 / 4) {
+        if (!(angle > PI * 5 / 4 && angle < PI * 7 / 4)) {
           side_scan.ranges[i] = std::numeric_limits<float>::infinity();
         }
       }
 
       // Get distances to objects in front
-      // NOTE: There is a way to break out this logic... and I don't really want
-      // to at the moment because I want to solve this quickly
       if (!(angle < PI / 4 || angle > PI * 7 / 4)) {
         front_scan.ranges[i] = std::numeric_limits<float>::infinity();
       }
