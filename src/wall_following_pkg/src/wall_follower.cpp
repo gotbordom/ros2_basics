@@ -18,23 +18,29 @@
 
 // project headers
 
-// TODO: Currently neither are "Implemented" the SinglePointPoseEstimate is being run by default.
-//       The TODO here is to actually refactor the code so that both either algorithm could be injected
-//       into the code. Then write up the second idea and see how it does compared to the first.
+// TODO: Currently neither are "Implemented" the SinglePointPoseEstimate is
+// being run by default.
+//       The TODO here is to actually refactor the code so that both either
+//       algorithm could be injected into the code. Then write up the second
+//       idea and see how it does compared to the first.
 /// @brief The aim of this is to break out the code into stages.
-///        SinglePointPoseEstimate     is estimating the distance of the robot from
-///                                    the wall and obstacles given a single point
-///                                    from front_scan data and a single point from
-///                                    side_scan data.
-///        AveragePointPoseEstimate    is my idea of attempting to determine pose
-///                                    based on all the data for either the side_scan
-///                                    or the front_scan.
-///        SpecificPointsPoseEstimate  There is likely a better name for this. I don't know it.
-///                                    I want to track only the points in front that the robot
-///                                    if continuing straight could actually drive into.
-///                                    Then use those points to determine if there is an obstacle in the way.
-enum class WallFollowingPoseEstimation
-{
+///        SinglePointPoseEstimate     is estimating the distance of the robot
+///        from
+///                                    the wall and obstacles given a single
+///                                    point from front_scan data and a single
+///                                    point from side_scan data.
+///        AveragePointPoseEstimate    is my idea of attempting to determine
+///        pose
+///                                    based on all the data for either the
+///                                    side_scan or the front_scan.
+///        SpecificPointsPoseEstimate  There is likely a better name for this. I
+///        don't know it.
+///                                    I want to track only the points in front
+///                                    that the robot if continuing straight
+///                                    could actually drive into. Then use those
+///                                    points to determine if there is an
+///                                    obstacle in the way.
+enum class WallFollowingPoseEstimation {
   SinglePointPoseEstimate = 0,
   AveragePointPoseEstimate = 1,
   SpecificPointsPoseEstimate = 2
@@ -42,19 +48,14 @@ enum class WallFollowingPoseEstimation
 
 /// @brief Enum to make code clearer when determining direction of wall
 ///        following in later code.
-enum class WallFollowingDirection
-{
-  LeftHandSide = 0,
-  RightHandSide = 1
-};
+enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
 
 /// @brief WallFollowerNode class that handles listening to the laser scanner
 ///        then determining next velocity command, and publishing it to the
 ///        correct topic.
 ///        The aim is the have the robot follow the wall at a distance of
 ///        approximately 0.2 -> 0.3 meters
-class WallFollowerNode : public rclcpp::Node
-{
+class WallFollowerNode : public rclcpp::Node {
 public:
   WallFollowerNode(WallFollowingDirection wall_to_follow =
                        WallFollowingDirection::LeftHandSide,
@@ -64,8 +65,7 @@ public:
       : Node(node_name), wall_to_follow_(wall_to_follow),
         subscription_channel_(subscription_channel),
         publisher_channel_(publisher_channel),
-        estimated_orientation_degrees_(0.0)
-  {
+        estimated_orientation_degrees_(0.0) {
 
     // Create pub / sub
     subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
@@ -123,8 +123,7 @@ private:
   /// Watching for the wall in front, or obstacles, should always be the data in
   /// [0,1/4 * pi] && [7/4 * pi, 2 * pi]
   auto topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
-      -> void
-  {
+      -> void {
 
     const double PI = 3.14;
     auto side_scan = *msg;
@@ -132,29 +131,22 @@ private:
 
     // NOTE: Logic here uses ! because I want to set everything but
     // those regions to inf.
-    for (size_t i = 0; i < msg->ranges.size(); ++i)
-    {
+    for (size_t i = 0; i < msg->ranges.size(); ++i) {
       float angle = msg->angle_min + i * msg->angle_increment;
 
       // Get distances to objects on the side we are following
-      if (wall_to_follow_ == WallFollowingDirection::LeftHandSide)
-      {
-        if (!(angle > PI / 4 && angle < PI * 3 / 4))
-        {
+      if (wall_to_follow_ == WallFollowingDirection::LeftHandSide) {
+        if (!(angle > PI / 4 && angle < PI * 3 / 4)) {
           side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
-      }
-      else if (wall_to_follow_ == WallFollowingDirection::RightHandSide)
-      {
-        if (!(angle > PI * 5 / 4 && angle < PI * 7 / 4))
-        {
+      } else if (wall_to_follow_ == WallFollowingDirection::RightHandSide) {
+        if (!(angle > PI * 5 / 4 && angle < PI * 7 / 4)) {
           side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
       }
 
       // Get distances to objects in front
-      if (!(angle < PI / 4 || angle > PI * 7 / 4))
-      {
+      if (!(angle < PI / 4 || angle > PI * 7 / 4)) {
         front_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
       }
     }
@@ -166,30 +158,26 @@ private:
     // TODO For optimization, I can now run filtering BEFORE splitting
     // my data into two datasets now that I know it is actually getting the
     // expected ranges. ( This would remove two for loops over 360+ data points)
-    for (size_t i = 0; i < side_scan.ranges.size(); ++i)
-    {
+    for (size_t i = 0; i < side_scan.ranges.size(); ++i) {
       // First remove the data if it is ourside the bounds of the hardware
       // per the published message.
       auto value_to_check = side_scan.ranges[i];
       auto value_nan = std::isnan(value_to_check);
       auto value_out_of_bounds = value_to_check < side_scan.range_min ||
                                  value_to_check > side_scan.range_max;
-      if (!value_nan && value_out_of_bounds)
-      {
+      if (!value_nan && value_out_of_bounds) {
         side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
       }
     }
 
-    for (size_t i = 0; i < front_scan.ranges.size(); ++i)
-    {
+    for (size_t i = 0; i < front_scan.ranges.size(); ++i) {
       // First remove the data if it is ourside the bounds of the hardware
       // per the published message.
       auto value_to_check = front_scan.ranges[i];
       auto value_nan = std::isnan(value_to_check);
       auto value_out_of_bounds = value_to_check < side_scan.range_min ||
                                  value_to_check > side_scan.range_max;
-      if (!value_nan && value_out_of_bounds)
-      {
+      if (!value_nan && value_out_of_bounds) {
         front_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
       }
     }
@@ -200,13 +188,11 @@ private:
     // Now lets actually erase all nan values.
     side_scan.ranges.erase(
         std::remove_if(side_scan.ranges.begin(), side_scan.ranges.end(),
-                       [](float val)
-                       { return std::isnan(val); }),
+                       [](float val) { return std::isnan(val); }),
         side_scan.ranges.end());
     front_scan.ranges.erase(
         std::remove_if(front_scan.ranges.begin(), front_scan.ranges.end(),
-                       [](float val)
-                       { return std::isnan(val); }),
+                       [](float val) { return std::isnan(val); }),
         front_scan.ranges.end());
 
     auto min_meters_from_wall = 0.2;
@@ -219,10 +205,12 @@ private:
                            ? -1 * turning_velocity
                            : turning_velocity;
 
-    // This is where I am determining distance reading then translating it into a "pose estimate"
-    // by updating how far I am from the wall and /or obstacles
+    // This is where I am determining distance reading then translating it into
+    // a "pose estimate" by updating how far I am from the wall and /or
+    // obstacles
     auto raw_side_scan_data = side_scan.ranges[side_scan.ranges.size() / 2];
-    estimated_pose_from_wall_meters_ = raw_side_scan_data * std::cos(estimated_orientation_degrees_);
+    estimated_pose_from_wall_meters_ =
+        raw_side_scan_data * std::cos(estimated_orientation_degrees_);
 
     // Am I in bounds
     auto driving_above_min_bound =
@@ -230,21 +218,24 @@ private:
     auto dirving_below_max_bound =
         estimated_pose_from_wall_meters_ < max_meters_from_wall;
 
+    RCLCPP_INFO(
+        this->get_logger(),
+        "Raw Reading: %f, Estimated Orientation: %f, Estimated Distance: %f",
+        raw_side_scan_data, estimated_orientation_degrees_,
+        estimated_pose_from_wall_meters_);
+
     // Either we are in bounds or we are turning to get in bounds
-    if (driving_above_min_bound && dirving_below_max_bound)
-    {
+    if (driving_above_min_bound && dirving_below_max_bound) {
       heading_velocities.angular.z =
           0.0; // just ensure that we don't need to turn
     }
     // To close to wall turn away
-    else if (dirving_below_max_bound)
-    {
+    else if (dirving_below_max_bound) {
       heading_velocities.angular.z = turning_velocity;
       estimated_orientation_degrees_ += turning_velocity;
     }
     // To far from wall turn towards
-    else if (driving_above_min_bound)
-    {
+    else if (driving_above_min_bound) {
       heading_velocities.angular.z = -1 * turning_velocity;
       estimated_orientation_degrees_ += turning_velocity;
     }
@@ -254,7 +245,8 @@ private:
     publisher_->publish(heading_velocities);
   }
 
-  float estimated_orientation_degrees_, estimated_pose_from_wall_meters_, estimated_pose_from_obstacle_meters_;
+  float estimated_orientation_degrees_, estimated_pose_from_wall_meters_,
+      estimated_pose_from_obstacle_meters_;
   WallFollowingDirection wall_to_follow_;
   std::string subscription_channel_, publisher_channel_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
@@ -267,8 +259,7 @@ private:
       front_scan_publisher_;
 };
 
-auto main(int argc, char *argv[]) -> int
-{
+auto main(int argc, char *argv[]) -> int {
   // init the rcl
   rclcpp::init(argc, argv);
   // spin the node
