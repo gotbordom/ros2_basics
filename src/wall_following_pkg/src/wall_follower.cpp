@@ -2,6 +2,7 @@
 #include <functional>
 #include <limits>
 #include <memory>
+#include <numeric>
 #include <string>
 
 // third party headers
@@ -22,8 +23,9 @@
 ///        next steps are fiting a curve, and / or other possible options. This
 ///        is mostly a place holder.
 enum class WallFollowingAlgorithm {
-  SimpleWallFollowing = 0,
-  FitCurveToWall = 1
+  SinglePointWallFollowing = 0,
+  AveragePointWallFollowing = 1,
+  FitCurveToWall = 2
 };
 
 /// @brief Enum to make code clearer when determining direction of wall
@@ -123,12 +125,17 @@ private:
       float angle = msg->angle_min + i * msg->angle_increment;
 
       // Get distances to objects on the side we are following
+      // NOTE: Currently I am only taking first half of the side wall as
+      // mentioned above as it should give me a good enough idea of the heading.
+      // If I find it isn't, I can extend this back to the full 90 degrees
+      // and use the second half to validate my robots orientation with
+      // respect to the wall.
       if (wall_to_follow_ == WallFollowingDirection::LeftHandSide) {
-        if (!(angle > PI / 4 && angle < PI * 3 / 4)) {
+        if (!(angle > PI / 4 && angle < PI / 2)) {
           side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
       } else if (wall_to_follow_ == WallFollowingDirection::RightHandSide) {
-        if (!(angle > PI * 5 / 4 && angle < PI * 7 / 4)) {
+        if (!(angle > PI * 3 / 2 && angle < PI * 7 / 4)) {
           side_scan.ranges[i] = std::numeric_limits<float>::quiet_NaN();
         }
       }
@@ -171,8 +178,57 @@ private:
       }
     }
 
+    // TODO - Another optimization would be to do this ahead of time once i know
+    // it all works. for now though I am still testing so I want all the data to
+    // technically exist until I really don't need it.
+    // Now lets actually erase all nan values.
+    side_scan.ranges.erase(
+        std::remove_if(side_scan.ranges.begin(), side_scan.ranges.end(),
+                       [](float val) { return std::isnan(val); }),
+        side_scan.ranges.end());
+    front_scan.ranges.erase(
+        std::remove_if(front_scan.ranges.begin(), front_scan.ranges.end(),
+                       [](float val) { return std::isnan(val); }),
+        front_scan.ranges.end());
+
     auto min_meters_from_wall = 0.2;
     auto max_meters_from_wall = 0.3;
+    auto heading_velocities = geometry_msgs::msg::Twist();
+    heading_velocities.linear.x = 0.001; // TODO: Make these adjustable
+    auto turning_velocity = 0.01;        // TODO: Make these adjustable.
+
+    // Determine rotation (+/- z) of turning velocity based on wall being
+    // followed.
+    turning_velocity = wall_to_follow_ == WallFollowingDirection::LeftHandSide
+                           ? -1 * turning_velocity
+                           : turning_velocity;
+
+    // TODO: If something is off, validate that the
+    // side_scan.ranges.size() <= 45, if it isn't I didn't filter data above
+    // right, OR I added back the second half of the data and should be handling
+    // validation around here somehwere.
+    // NOTE: Again this is the simplest solution possible.
+    // value range[90] should be the object exactly to the side of the robot.
+    auto driving_above_min_bound =
+        *side_scan.ranges.end() > min_meters_from_wall;
+    auto dirving_below_max_bound =
+        *side_scan.ranges.end() < max_meters_from_wall;
+
+    // Either we are in bounds or we are turning to get in bounds
+    if (driving_above_min_bound && dirving_below_max_bound) {
+      heading_velocities.angular.z =
+          0.0; // just ensure that we don't need to turn
+      // To close to wall turn away
+    } else if (dirving_below_max_bound) {
+      heading_velocities.angular.z = turning_velocity;
+      // To far from wall turn towards
+    } else if (driving_above_min_bound) {
+      heading_velocities.angular.z = -1 * turning_velocity;
+    }
+
+    // Now that we are following the wall, let's see if we need to override data
+    // to avoid the wall in front of us
+    publisher_->publish(heading_velocities);
   }
 
   WallFollowingDirection wall_to_follow_;
