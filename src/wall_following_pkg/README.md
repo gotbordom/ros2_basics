@@ -12,7 +12,7 @@ The main loop of this code, like many ROS projects utilizes the ROS framework to
 
 <p align="center">
   <picture>
-    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Main.png?raw=true" alt="Wall Follower Main" style="width:50%; max-width:600px; height:auto;">
+    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Main.png?raw=true" alt="Wall Follower Main" style="width:25%; max-width:600px; height:auto;">
   </picture>
 </p>
 
@@ -49,7 +49,7 @@ Since this is a callback method it will be called everytime a new laser scan mes
 
 <p align="center">
   <picture>
-    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Laser%20Scan%20Callback.png?raw=true" alt="Wall Follower Main" style="width:50%; max-width:600px; height:auto;">
+    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Laser%20Scan%20Callback.png?raw=true" alt="Wall Follower Main" style="width:25%; max-width:600px; height:auto;">
   </picture>
 </p>
 
@@ -69,7 +69,7 @@ The main loop listens to the Odom publisher, updating the current and previous p
 
 <p align="center">
   <picture>
-    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Odom%20Callback.png?raw=true" alt="Wall Follower Main" style="width:50%; max-width:600px; height:auto;">
+    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Odom%20Callback.png?raw=true" alt="Wall Follower Main" style="width:25%; max-width:600px; height:auto;">
   </picture>
 </p>
 
@@ -84,7 +84,7 @@ This controller handles:
 
 <p align="center">
   <picture>
-    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Control%20Callback.png?raw=true" alt="Wall Follower Main" style="width:50%; max-width:600px; height:auto;">
+    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/Wall%20Follower%20Control%20Callback.png?raw=true" alt="Wall Follower Main" style="width:25%; max-width:600px; height:auto;">
   </picture>
 </p>
 
