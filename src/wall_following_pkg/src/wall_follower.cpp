@@ -16,12 +16,13 @@
 #include "sensor_msgs/msg/detail/laser_scan__struct.hpp"
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <nav_msgs/msg/odometry.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/laser_scan.hpp>
 
 // project headers
 
-using std::chrono_literals;
+using namespace std::chrono_literals;
 
 /// @brief Enum to make code clearer when determining direction of wall
 ///        following in later code.
@@ -58,17 +59,21 @@ public:
     callback_group_3_ = this->create_callback_group(
         rclcpp::CallbackGroupType::MutuallyExclusive);
 
+    rclcpp::SubscriptionOptions options1;
+    options1.callback_group = callback_group_1_;
     laser_scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
         "scan", 10,
         std::bind(&WallFollowerNode::laser_scan_callback, this,
                   std::placeholders::_1),
-        callback_group_1_);
+        options1);
 
+    rclcpp::SubscriptionOptions options2;
+    options1.callback_group = callback_group_2_;
     odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
         "odom", 10,
         std::bind(&WallFollowerNode::odom_callback, this,
                   std::placeholders::_1),
-        callback_group_2_);
+        options2);
 
     controller_timer = this->create_wall_timer(
         1s, std::bind(&WallFollowerNode::controller_callback, this),
@@ -85,13 +90,14 @@ private:
 
   /// @brief   The odometry callback is in charge of determining the previous,
   ///          and current, state of the robot given sensor data
-  auto odom_callback() -> void{};
+  auto odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) -> void{};
 
   /// @brief The laser scan callback is tasked with updating the state object
   /// with
   ///        the correct Left, Right and Front ranges as well as minimum values
   ///        for each.
-  auto laser_scan_callback() -> void{};
+  auto laser_scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
+      -> void{};
 
   RobotState curr_state, prev_state_;
 
