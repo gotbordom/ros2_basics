@@ -21,6 +21,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -44,6 +45,7 @@ ament_target_dependencies(wall_follower_node
 	std_msgs
 	geometry_msgs
 	sensor_msgs
+  nav_msgs
 )
 
 # install exe objects
