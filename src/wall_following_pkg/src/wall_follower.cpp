@@ -1,4 +1,5 @@
 // std headers
+#include <algorithm>
 #include <chrono>
 #include <functional>
 #include <limits>
@@ -171,28 +172,28 @@ private:
       // min values and their angles
       auto it = std::min_element(
           msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
-          msg->ranges.end() + curr_state_.range_infos.idx_front_left.second);
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
       auto min_value_angle = std::distance(msg->ranges.begin(), it) *
                              curr_state_.range_infos.angle_rad_increment;
       curr_state_.range_infos.min_front_left = {*it, min_value_angle};
 
       it = std::min_element(
           msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
-          msg->ranges.end() + curr_state_.range_infos.idx_front_right.second);
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
       min_value_angle = std::distance(msg->ranges.begin(), it) *
                         curr_state_.range_infos.angle_rad_increment;
       curr_state_.range_infos.min_front_right = {*it, min_value_angle};
 
       it = std::min_element(
           msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
-          msg->ranges.end() + curr_state_.range_infos.idx_left.second);
+          msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
       min_value_angle = std::distance(msg->ranges.begin(), it) *
                         curr_state_.range_infos.angle_rad_increment;
       curr_state_.range_infos.min_left = {*it, min_value_angle};
 
       it = std::min_element(
           msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
-          msg->ranges.end() + curr_state_.range_infos.idx_right.second);
+          msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
       min_value_angle = std::distance(msg->ranges.begin(), it) *
                         curr_state_.range_infos.angle_rad_increment;
       curr_state_.range_infos.min_right = {*it, min_value_angle};
@@ -260,28 +261,28 @@ private:
     // Save initial min value per range
     auto it = std::min_element(
         msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
-        msg->ranges.end() + curr_state_.range_infos.idx_front_left.second);
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
     auto min_value_angle = std::distance(msg->ranges.begin(), it) *
                            curr_state_.range_infos.angle_rad_increment;
     curr_state_.range_infos.min_front_left = {*it, min_value_angle};
 
     it = std::min_element(
         msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
-        msg->ranges.end() + curr_state_.range_infos.idx_front_right.second);
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
     min_value_angle = std::distance(msg->ranges.begin(), it) *
                       curr_state_.range_infos.angle_rad_increment;
     curr_state_.range_infos.min_front_right = {*it, min_value_angle};
 
     it = std::min_element(
         msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
-        msg->ranges.end() + curr_state_.range_infos.idx_left.second);
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
     min_value_angle = std::distance(msg->ranges.begin(), it) *
                       curr_state_.range_infos.angle_rad_increment;
     curr_state_.range_infos.min_left = {*it, min_value_angle};
 
     it = std::min_element(
         msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
-        msg->ranges.end() + curr_state_.range_infos.idx_right.second);
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
     min_value_angle = std::distance(msg->ranges.begin(), it) *
                       curr_state_.range_infos.angle_rad_increment;
     curr_state_.range_infos.min_right = {*it, min_value_angle};
