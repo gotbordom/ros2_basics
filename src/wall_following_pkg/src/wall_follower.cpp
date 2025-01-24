@@ -1,14 +1,20 @@
 // std headers
 #include <algorithm>
 #include <chrono>
+#include <cmath>
 #include <functional>
 #include <limits>
 #include <memory>
 #include <numeric>
 #include <string>
+#include <utility>
 
 // third party headers
+#include "geometry_msgs/msg/detail/point__struct.hpp"
+#include "geometry_msgs/msg/detail/pose_with_covariance__struct.hpp"
+#include "geometry_msgs/msg/detail/quaternion__struct.hpp"
 #include "geometry_msgs/msg/detail/twist__struct.hpp"
+#include "nav_msgs/msg/detail/odometry__struct.hpp"
 #include "rclcpp/callback_group.hpp"
 #include "rclcpp/logging.hpp"
 #include "rclcpp/publisher.hpp"
@@ -16,15 +22,19 @@
 #include "rclcpp/timer.hpp"
 #include "rclcpp/utilities.hpp"
 #include "sensor_msgs/msg/detail/laser_scan__struct.hpp"
+#include <geometry_msgs/msg/point.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/laser_scan.hpp>
+#include <vector>
 
 // project headers
 
 using namespace std::chrono_literals;
+
+/// NOTE: This is all done in ROBOT frame of reference.
 
 /// @brief Enum to make code clearer when determining direction of wall
 ///        following in later code.
@@ -62,13 +72,19 @@ struct RangeInfos {
   std::pair<float, float> min_right;
 };
 
+struct OdomInfos {
+  float yaw_radians;
+  geometry_msgs::msg::PoseWithCovariance pose;
+  geometry_msgs::msg::Point distance_front_left;
+  geometry_msgs::msg::Point distance_front_right;
+  geometry_msgs::msg::Point distance_left;
+  geometry_msgs::msg::Point distance_right;
+};
+
 struct RobotState {
+  OdomInfos odom_infos;
   RangeInfos range_infos;
-  geometry_msgs::msg::Pose pose;
   WallFollowingDirection direction_to_follow;
-  float euclidean_dist_front;
-  float euclidean_dist_left;
-  float euclidean_dist_right;
 };
 
 /// @brief WallFollowerNode class that handles listening to the laser scanner
@@ -123,7 +139,105 @@ private:
   /// @brief   The odometry callback is in charge of determining the previous,
   ///          and current, state of the robot given sensor data
   auto odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) -> void {
-    RCLCPP_INFO(this->get_logger(), "ODOMETRY CALLBACK: got called");
+    if (!odom_setup_done_) {
+      RCLCPP_INFO(this->get_logger(), "ODOMETRY CALLBACK: running setup");
+      curr_state_.odom_infos.pose = msg->pose;
+      curr_state_.odom_infos.yaw_radians =
+          calculate_heading_in_rad(msg->pose.pose.orientation);
+      prev_state_ = curr_state_;
+      odom_setup_done_ = true;
+
+      print_odom_infos();
+    }
+
+    // Always start by moving current to previous
+    prev_state_ = curr_state_;
+
+    // store new x, y, yaw
+    curr_state_.odom_infos.pose = msg->pose;
+    curr_state_.odom_infos.yaw_radians =
+        calculate_heading_in_rad(msg->pose.pose.orientation);
+
+    // calculate/store distances
+    curr_state_.odom_infos.distance_front_left = calculate_vector_differences(
+        curr_state_.odom_infos.pose.pose.position,
+        calculate_vector_components(curr_state_.range_infos.min_front_left));
+
+    curr_state_.odom_infos.distance_front_right = calculate_vector_differences(
+        curr_state_.odom_infos.pose.pose.position,
+        calculate_vector_components(curr_state_.range_infos.min_front_right));
+
+    curr_state_.odom_infos.distance_left = calculate_vector_differences(
+        curr_state_.odom_infos.pose.pose.position,
+        calculate_vector_components(curr_state_.range_infos.min_left));
+
+    curr_state_.odom_infos.distance_right = calculate_vector_differences(
+        curr_state_.odom_infos.pose.pose.position,
+        calculate_vector_components(curr_state_.range_infos.min_right));
+
+    // now print out logging
+    print_odom_infos();
+  }
+
+  auto calculate_heading_in_rad(const geometry_msgs::msg::Quaternion &q)
+      -> float {
+    auto yaw = std::atan2(2 * (q.x * q.w - q.y * q.z),
+                          1 - 2 * (q.x * q.x + q.y * q.y));
+    return yaw;
+  }
+
+  auto calculate_vector_differences(const geometry_msgs::msg::Point &a,
+                                    const geometry_msgs::msg::Point &b)
+      -> geometry_msgs::msg::Point {
+    geometry_msgs::msg::Point diff;
+    diff.x = std::abs(b.x - a.x);
+    diff.y = std::abs(b.y - a.y);
+    diff.z = std::abs(b.z - a.z);
+
+    return diff;
+  }
+
+  auto calculate_vector_components(const std::pair<float, float> &v)
+      -> geometry_msgs::msg::Point {
+    geometry_msgs::msg::Point components;
+    components.x = v.first * std::sin(v.second);
+    components.y = v.first * std::cos(v.second);
+    components.z = 0;
+    return components;
+  }
+
+  // TODO - I should just overwrite the struct with an << operator or a print
+  // function itself
+  /// @brief Print out the current state range info
+  auto print_odom_infos() -> void {
+    // const auto info = curr_state_.range_infos;
+    RCLCPP_INFO(this->get_logger(),
+                "ODOM STATES\n"
+                "===========\n"
+                "PREV: X = %f, Y = %f, Yaw = %f\n"
+                "CURR: X = %f, Y = %f, Yaw = %f\n",
+                prev_state_.odom_infos.pose.pose.position.x,
+                prev_state_.odom_infos.pose.pose.position.y,
+                prev_state_.odom_infos.yaw_radians,
+                curr_state_.odom_infos.pose.pose.position.x,
+                curr_state_.odom_infos.pose.pose.position.y,
+                curr_state_.odom_infos.yaw_radians);
+
+    RCLCPP_INFO(this->get_logger(),
+                "ODOM DISTANCES\n"
+                "==============\n"
+                "FRONT LEFT:  dX = %f, dY = %f\n"
+                "FRONT RIGHT: dX = %f, dY = %f\n"
+                "LEFT:        dX = %f, dY = %f\n"
+                "RIGHT:       dX = %f, dY = %f\n",
+                curr_state_.odom_infos.distance_front_left.x,
+                curr_state_.odom_infos.distance_front_left.y,
+                curr_state_.odom_infos.distance_front_left.x,
+                curr_state_.odom_infos.distance_front_left.y,
+                curr_state_.odom_infos.distance_left.x,
+                curr_state_.odom_infos.distance_left.y,
+                curr_state_.odom_infos.distance_right.x,
+                curr_state_.odom_infos.distance_right.y);
   }
 
   /// @brief The laser scan callback is tasked with updating the state object
@@ -144,62 +258,60 @@ private:
     if (!laser_scan_setup_done_) {
       RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running setup");
       laser_scan_setup_done_ = laser_scan_setup(msg);
-    } else {
-      RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running non-setup");
-
-      // First make sure to set previous state to the current state.
-      // prev_state_ = curr_state_;
-
-      // Then adjust current state range infos to new incoming data.
-
-      // ranges
-      curr_state_.range_infos.range_front_left = std::vector<float>(
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
-
-      curr_state_.range_infos.range_front_right = std::vector<float>(
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
-
-      curr_state_.range_infos.range_left = std::vector<float>(
-          msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
-
-      curr_state_.range_infos.range_right = std::vector<float>(
-          msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
-
-      // min values and their angles
-      auto it = std::min_element(
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
-      auto min_value_angle = std::distance(msg->ranges.begin(), it) *
-                             curr_state_.range_infos.angle_rad_increment;
-      curr_state_.range_infos.min_front_left = {*it, min_value_angle};
-
-      it = std::min_element(
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
-      min_value_angle = std::distance(msg->ranges.begin(), it) *
-                        curr_state_.range_infos.angle_rad_increment;
-      curr_state_.range_infos.min_front_right = {*it, min_value_angle};
-
-      it = std::min_element(
-          msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
-      min_value_angle = std::distance(msg->ranges.begin(), it) *
-                        curr_state_.range_infos.angle_rad_increment;
-      curr_state_.range_infos.min_left = {*it, min_value_angle};
-
-      it = std::min_element(
-          msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
-          msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
-      min_value_angle = std::distance(msg->ranges.begin(), it) *
-                        curr_state_.range_infos.angle_rad_increment;
-      curr_state_.range_infos.min_right = {*it, min_value_angle};
-
-      print_range_infos();
     }
+
+    RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running callback");
+
+    // Make sure to store current in previous state.
+    prev_state_ = curr_state_;
+
+    // Load current state
+    curr_state_.range_infos.range_front_left = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
+
+    curr_state_.range_infos.range_front_right = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
+
+    curr_state_.range_infos.range_left = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
+
+    curr_state_.range_infos.range_right = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
+
+    // min values and their angles
+    auto it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
+    auto min_value_angle = std::distance(msg->ranges.begin(), it) *
+                           curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_front_left = {*it, min_value_angle};
+
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_front_right = {*it, min_value_angle};
+
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_left = {*it, min_value_angle};
+
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_right = {*it, min_value_angle};
+
+    print_range_infos();
   }
 
   //  TODO - This needs to be broken into smaller helper functions that can all
@@ -318,11 +430,7 @@ private:
   }
 
   RobotState curr_state_, prev_state_;
-  // TODO - I want think on who should own these. I don't believe they would be
-  //        a part of the robot state? my intial thought being that they are a
-  //        part of the robot's controller state?
   bool laser_scan_setup_done_, odom_setup_done_;
-
   rclcpp::CallbackGroup::SharedPtr callback_group_1_, callback_group_2_,
       callback_group_3_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_pub_;
