@@ -7,6 +7,7 @@ def generate_launch_description():
             package="wall_following_pkg",
             executable="wall_follower_node",
             output="screen",
-            emulate_tty=True
+            emulate_tty=True,
+            arguments=['--ros-args', '--log-level', 'info']
         )
     ])

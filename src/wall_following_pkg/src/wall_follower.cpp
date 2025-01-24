@@ -9,6 +9,7 @@
 // third party headers
 #include "geometry_msgs/msg/detail/twist__struct.hpp"
 #include "rclcpp/callback_group.hpp"
+#include "rclcpp/logging.hpp"
 #include "rclcpp/publisher.hpp"
 #include "rclcpp/subscription.hpp"
 #include "rclcpp/timer.hpp"
@@ -31,31 +32,39 @@ enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
 struct RangeInfos {
   // Data that should only ever be updated in setup
   // range pairs are [ (inclusive), (exclusive) ]
-  std::vector<std::pair<int, int>> front_idxs;
-  std::vector<std::pair<int, int>> left_idxs;
-  std::vector<std::pair<int, int>> right_idxs;
-  std::pair<float, float> front_angle_range;
-  std::pair<float, float> left_angle_range;
-  std::pair<float, float> right_angle_range;
-  // min, max pairs are [min, max]
-  std::pair<float, float> angle_rad_min_max;
+  // NOTE: front is broken into left and because the it is [0, (1/4)pi] and
+  // [(7/4)pi, 2pi] instead of handling a discontinuity I will just make two
+  // vectors
+  std::pair<int, int> idx_front_left;
+  std::pair<int, int> idx_front_right;
+  std::pair<int, int> idx_left;
+  std::pair<int, int> idx_right;
+  // min max pairs are [ min, max ]
+  std::pair<float, float> angle_rad_min_max_front_left;
+  std::pair<float, float> angle_rad_min_max_front_right;
+  std::pair<float, float> angle_rad_min_max_left;
+  std::pair<float, float> angle_rad_min_max_right;
+  // should be the same for all data ranges
   std::pair<float, float> range_meter_min_max;
-  float angle_rad_increment; // should be the same for all data ranges
+  float angle_rad_increment;
 
   // Data that will be updated every iteration of a state.
-  std::vector<float> front_range;
-  std::vector<float> left_range;
-  std::vector<float> right_range;
-  float min_front_range;
-  float min_left_range;
-  float min_right_range;
+  std::vector<float> range_front_left;
+  std::vector<float> range_front_right;
+  std::vector<float> range_left;
+  std::vector<float> range_right;
+
+  // keep track of the min value, and its respective angle it was acquired at
+  std::pair<float, float> min_front_left;
+  std::pair<float, float> min_front_right;
+  std::pair<float, float> min_left;
+  std::pair<float, float> min_right;
 };
 
 struct RobotState {
   RangeInfos range_infos;
   geometry_msgs::msg::Pose pose;
   WallFollowingDirection direction_to_follow;
-  RangeInfos ranges_info;
   float euclidean_dist_front;
   float euclidean_dist_left;
   float euclidean_dist_right;
@@ -68,7 +77,7 @@ struct RobotState {
 ///        approximately 0.2 -> 0.3 meters
 class WallFollowerNode : public rclcpp::Node {
 public:
-  WallFollowerNode(std::string publisher_channel = "cmd_vel")
+  WallFollowerNode()
       : Node("wall_follower_node"), laser_scan_setup_done_(false),
         odom_setup_done_(false) {
 
@@ -106,11 +115,15 @@ public:
 private:
   /// @brief   The controller callback in charge of publishing velocity values
   ///          based on the current state of the robot.
-  auto controller_callback() -> void {}
+  auto controller_callback() -> void {
+    RCLCPP_INFO(this->get_logger(), "CONTROLLER CALLBACK: got called");
+  }
 
   /// @brief   The odometry callback is in charge of determining the previous,
   ///          and current, state of the robot given sensor data
-  auto odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) -> void {}
+  auto odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) -> void {
+    RCLCPP_INFO(this->get_logger(), "ODOMETRY CALLBACK: got called");
+  }
 
   /// @brief The laser scan callback is tasked with updating the state object
   ///        with the correct Left, Right and Front ranges as well as minimum
@@ -128,79 +141,185 @@ private:
   auto laser_scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
       -> void {
     if (!laser_scan_setup_done_) {
+      RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running setup");
       laser_scan_setup_done_ = laser_scan_setup(msg);
+    } else {
+      RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running non-setup");
+
+      // First make sure to set previous state to the current state.
+      // prev_state_ = curr_state_;
+
+      // Then adjust current state range infos to new incoming data.
+
+      // ranges
+      curr_state_.range_infos.range_front_left = std::vector<float>(
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
+
+      curr_state_.range_infos.range_front_right = std::vector<float>(
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
+
+      curr_state_.range_infos.range_left = std::vector<float>(
+          msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+          msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
+
+      curr_state_.range_infos.range_right = std::vector<float>(
+          msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+          msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
+
+      // min values and their angles
+      auto it = std::min_element(
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+          msg->ranges.end() + curr_state_.range_infos.idx_front_left.second);
+      auto min_value_angle = std::distance(msg->ranges.begin(), it) *
+                             curr_state_.range_infos.angle_rad_increment;
+      curr_state_.range_infos.min_front_left = {*it, min_value_angle};
+
+      it = std::min_element(
+          msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+          msg->ranges.end() + curr_state_.range_infos.idx_front_right.second);
+      min_value_angle = std::distance(msg->ranges.begin(), it) *
+                        curr_state_.range_infos.angle_rad_increment;
+      curr_state_.range_infos.min_front_right = {*it, min_value_angle};
+
+      it = std::min_element(
+          msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+          msg->ranges.end() + curr_state_.range_infos.idx_left.second);
+      min_value_angle = std::distance(msg->ranges.begin(), it) *
+                        curr_state_.range_infos.angle_rad_increment;
+      curr_state_.range_infos.min_left = {*it, min_value_angle};
+
+      it = std::min_element(
+          msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+          msg->ranges.end() + curr_state_.range_infos.idx_right.second);
+      min_value_angle = std::distance(msg->ranges.begin(), it) *
+                        curr_state_.range_infos.angle_rad_increment;
+      curr_state_.range_infos.min_right = {*it, min_value_angle};
+
+      print_range_infos();
     }
   }
 
+  //  TODO - This needs to be broken into smaller helper functions that can all
+  //  get unit tested.
   /// @brief   Run the setup for the laser scan callback. This will calculate
   ///          the correct index values, etc for each range and store them.
   /// @return  boolean - if configuration was successful.
   auto laser_scan_setup(const sensor_msgs::msg::LaserScan::SharedPtr msg)
       -> bool {
 
+    // Set the data we take directly from the msg
     curr_state_.range_infos.angle_rad_increment = msg->angle_increment;
-    curr_state_.range_infos.angle_rad_min_max.first = msg->angle_min;
-    curr_state_.range_infos.angle_rad_min_max.second = msg->angle_max;
     curr_state_.range_infos.range_meter_min_max.first = msg->range_min;
     curr_state_.range_infos.range_meter_min_max.second = msg->range_max;
 
-    curr_state_.range_infos.front_idxs = {{0, 44}, {315, 359}};
+    // Set the index values to use for each range.
+    // Since each messaage gets a full 360 readings for a single 360 degree
+    // rotation, these numbers are easier to use.
+    curr_state_.range_infos.idx_front_left = {0, 45};
+    curr_state_.range_infos.idx_front_right = {315, 360};
+    curr_state_.range_infos.idx_left = {45, 135};
+    curr_state_.range_infos.idx_right = {225, 315};
 
-    curr_state_.range_infos.left_idxs = {{45, 134}};
+    // Set the radian min/max ranges encase I need to compute the degree of any
+    // of my stored range's elements store the radiands start  and end values
+    // for each range.
+    const float PI = 3.14;
+    const float degree_to_rad = PI / 180;
+    curr_state_.range_infos.angle_rad_min_max_front_left = {
+        degree_to_rad * curr_state_.range_infos.idx_front_left.first,
+        degree_to_rad * curr_state_.range_infos.idx_front_left.second};
+    curr_state_.range_infos.angle_rad_min_max_front_right = {
+        degree_to_rad * curr_state_.range_infos.idx_front_right.first,
+        degree_to_rad * curr_state_.range_infos.idx_front_right.second};
+    curr_state_.range_infos.angle_rad_min_max_left = {
+        degree_to_rad * curr_state_.range_infos.idx_left.first,
+        degree_to_rad * curr_state_.range_infos.idx_left.second};
+    curr_state_.range_infos.angle_rad_min_max_right = {
+        degree_to_rad * curr_state_.range_infos.idx_right.first,
+        degree_to_rad * curr_state_.range_infos.idx_right.second};
 
-    curr_state_.range_infos.right_idxs = {{225, 314}};
+    // Store ranges
+    curr_state_.range_infos.range_front_left = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.second);
 
-    curr_state_.range_infos.right_range = std::vector<float>(
-        msg->ranges.begin() + curr_state_.range_infos.right_idxs[0].first,
-        msg->ranges.begin() + curr_state_.range_infos.right_idxs[0].second);
+    curr_state_.range_infos.range_front_right = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.second);
 
-    curr_state_.range_infos.left_range = std::vector<float>(
-        msg->ranges.begin() + curr_state_.range_infos.left_idxs[0].first,
-        msg->ranges.begin() + curr_state_.range_infos.left_idxs[0].second);
+    curr_state_.range_infos.range_left = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.second);
 
-    // Get front, left and right range vectors and save start/ end idx for each.
-    // for (size_t i = 0; i < msg->ranges.size() l++ i)
-    // {
-    //   // TODO: If I end up needing to filter out improper data this could be
-    //   an
-    //   //       optimal time.
-    //   float angle = msg->angle_min + i * msg->angle_increment;
-
-    //   // Get range index values
-    //   if (angle > PI / 4 && angle < PI * 3 / 4)
-    //   {
-    //     prev_state_.range_infos.left_range.push_back(msg->ranges[i]);
-    //     curr_state_.range_infos.left_range.push_back(msg->ranges[i]);
-    //   }
-
-    //   // update right range values
-    //   if (angle > PI * 5 / 4 && angle < PI * 7 / 4)
-    //   {
-    //     prev_state_.range_infos.right_range.push_back(msg->ranges[i]);
-    //     curr_state_.range_infos.right_range.push_back(msg->ranges[i]);
-    //   }
-
-    //   // update front range values
-    //   if (angle < PI / 4 || angle > PI * 7 / 4)
-    //   {
-    //     prev_state_.range_infos.front_range.push_back(msg->ranges[i]);
-    //     curr_state_.range_infos.front_range.push_back(msg->ranges[i]);
-    //   }
-    // }
-
-    // Save min/max scan angles and ranges
+    curr_state_.range_infos.range_right = std::vector<float>(
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.second);
 
     // Save initial min value per range
+    auto it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_left.first,
+        msg->ranges.end() + curr_state_.range_infos.idx_front_left.second);
+    auto min_value_angle = std::distance(msg->ranges.begin(), it) *
+                           curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_front_left = {*it, min_value_angle};
 
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_front_right.first,
+        msg->ranges.end() + curr_state_.range_infos.idx_front_right.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_front_right = {*it, min_value_angle};
+
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_left.first,
+        msg->ranges.end() + curr_state_.range_infos.idx_left.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_left = {*it, min_value_angle};
+
+    it = std::min_element(
+        msg->ranges.begin() + curr_state_.range_infos.idx_right.first,
+        msg->ranges.end() + curr_state_.range_infos.idx_right.second);
+    min_value_angle = std::distance(msg->ranges.begin(), it) *
+                      curr_state_.range_infos.angle_rad_increment;
+    curr_state_.range_infos.min_right = {*it, min_value_angle};
+
+    print_range_infos();
     return true;
   }
 
-  RobotState curr_state_, prev_state_;
+  // TODO - I should just overwrite the struct with an << operator or a print
+  // function itself
+  /// @brief Print out the current state range info
+  auto print_range_infos() -> void {
+    // const auto info = curr_state_.range_infos;
+    RCLCPP_INFO(this->get_logger(),
+                "CURRENT STATE\n"
+                "=============\n"
+                "LEFT:        SIZE = %d, MIN VALUE = %f, MIN ANGLE = %f\n"
+                "RIGHT:       SIZE = %d, MIN VALUE = %f, MIN ANGLE = %f\n"
+                "FRONT LEFT:  SIZE = %d, MIN VALUE = %f, MIN ANGLE = %f\n"
+                "FRONT RIGHT: SIZE = %d, MIN VALUE = %f, MIN ANGLE = %f\n",
+                curr_state_.range_infos.range_left.size(),
+                curr_state_.range_infos.min_left.first,
+                curr_state_.range_infos.min_left.second,
+                curr_state_.range_infos.range_right.size(),
+                curr_state_.range_infos.min_right.first,
+                curr_state_.range_infos.min_right.second,
+                curr_state_.range_infos.range_front_left.size(),
+                curr_state_.range_infos.min_front_left.first,
+                curr_state_.range_infos.min_front_left.second,
+                curr_state_.range_infos.range_front_right.size(),
+                curr_state_.range_infos.min_front_right.first,
+                curr_state_.range_infos.min_front_right.second);
+  }
 
+  RobotState curr_state_, prev_state_;
   // TODO - I want think on who should own these. I don't believe they would be
-  // a part of the robot state?
-  //        my thought being that they are a part of the robot's controller
-  //        state?
+  //        a part of the robot state? my intial thought being that they are a
+  //        part of the robot's controller state?
   bool laser_scan_setup_done_, odom_setup_done_;
 
   rclcpp::CallbackGroup::SharedPtr callback_group_1_, callback_group_2_,
