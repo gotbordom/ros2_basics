@@ -38,7 +38,41 @@ using namespace std::chrono_literals;
 
 /// @brief Enum to make code clearer when determining direction of wall
 ///        following in later code.
-enum class WallFollowingDirection { LeftHandSide = 0, RightHandSide = 1 };
+enum class WallFollowingDirection {
+  Unknown = 0,
+  LeftHandSide = 1,
+  RightHandSide = 2
+};
+
+struct ControllerInfos {
+
+  // Fixed values
+  float linear_velocity_stop;
+  float linear_velocity_slow;
+  float linear_velocity_fast;
+  float angular_velocity_stop;
+  float angular_velocity_slow;
+  float angular_velocity_fast;
+  float front_treshold;
+  float side_min_threshold;
+  float side_max_threshold;
+
+  // Values that shouldn't change once set
+  bool wall_found;
+  WallFollowingDirection direction_to_follow;
+
+  // values that could change every iteration
+  geometry_msgs::msg::Twist next_command;
+};
+
+struct OdomInfos {
+  float yaw_radians;
+  geometry_msgs::msg::PoseWithCovariance pose;
+  geometry_msgs::msg::Point distance_front_left;
+  geometry_msgs::msg::Point distance_front_right;
+  geometry_msgs::msg::Point distance_left;
+  geometry_msgs::msg::Point distance_right;
+};
 
 struct RangeInfos {
   // Data that should only ever be updated in setup
@@ -72,19 +106,10 @@ struct RangeInfos {
   std::pair<float, float> min_right;
 };
 
-struct OdomInfos {
-  float yaw_radians;
-  geometry_msgs::msg::PoseWithCovariance pose;
-  geometry_msgs::msg::Point distance_front_left;
-  geometry_msgs::msg::Point distance_front_right;
-  geometry_msgs::msg::Point distance_left;
-  geometry_msgs::msg::Point distance_right;
-};
-
 struct RobotState {
+  ControllerInfos controller_infos;
   OdomInfos odom_infos;
   RangeInfos range_infos;
-  WallFollowingDirection direction_to_follow;
 };
 
 /// @brief WallFollowerNode class that handles listening to the laser scanner
@@ -97,6 +122,22 @@ public:
   WallFollowerNode()
       : Node("wall_follower_node"), laser_scan_setup_done_(false),
         odom_setup_done_(false) {
+
+    // TODO: I have this setup and want to eventually have it load from a
+    // config, or launch, file. Hard coded here for now. initilize controller
+    curr_state_.controller_infos =
+        ControllerInfos{0.0,   // linear stop
+                        0.1,   // linear slow
+                        0.5,   // linear fast
+                        0.0,   // angular stop
+                        0.1,   // angular slow
+                        0.5,   // angular fast
+                        0.5,   // Front threshold for obstacle and walls
+                        0.2,   // side minimum follow distance
+                        0.5,   // side maximum follow distance
+                        false, // wall found
+                        WallFollowingDirection::Unknown,
+                        geometry_msgs::msg::Twist()};
 
     callback_group_1_ = this->create_callback_group(
         rclcpp::CallbackGroupType::MutuallyExclusive);
@@ -133,7 +174,49 @@ private:
   /// @brief   The controller callback in charge of publishing velocity values
   ///          based on the current state of the robot.
   auto controller_callback() -> void {
-    RCLCPP_INFO(this->get_logger(), "CONTROLLER CALLBACK: got called");
+    RCLCPP_INFO(this->get_logger(), "CONTROLLER CALLBACK: running");
+
+    auto dist_to_front_left = curr_state_.odom_infos.distance_front_left.y;
+    auto dist_to_front_right = curr_state_.odom_infos.distance_front_right.y;
+    auto front_threshold = curr_state_.controller_infos.front_treshold;
+
+    // Wall not found - go find it
+    if (!curr_state_.controller_infos.wall_found) {
+      // no wall yet so I need to watch both left and right sections of front
+      // sensor
+      if (dist_to_front_left < front_threshold ||
+          dist_to_front_right < front_threshold) {
+
+        // We are close enough to a wall that we can find one.
+        // Set linear & angular velocity to stop
+        // Call controller callback block 3
+
+      } else {
+
+        // We aren't close enough to any wall to find one
+        // Set linear velocity to slow and keep looking
+      }
+    } else {
+
+      // We know which wall we are following so only use that front range data
+      // for that side
+      auto wall_following = curr_state_.controller_infos.direction_to_follow;
+      auto dist_to_front =
+          wall_following == WallFollowingDirection::LeftHandSide
+              ? dist_to_front_left
+              : dist_to_front_right;
+
+      if (dist_to_front < front_threshold) {
+        // We are close to a front wall
+        // Set linear velocity to slow
+        // Call controller callback block 2
+      } else {
+        // We have our wall to follow and are not close to a wall in front
+        // speed up
+        // Set linear velocity to fast
+        // Call controller callback block 1
+      }
+    }
   }
 
   /// @brief   The odometry callback is in charge of determining the previous,
@@ -244,7 +327,8 @@ private:
   ///        with the correct Left, Right and Front ranges as well as minimum
   ///        values for each.
   /// @param msg the last published LaserScan object
-  /// @note  Unfortunately I can't find documentation on this laser scanner and
+  /// @note  Unfortunately I can't find documentation on this laser scanner
+  /// and
   ///        if angle 0 is ranges[0]... angle 360 is ranges[360]
 
   /// ASSUMPTION:
@@ -314,8 +398,8 @@ private:
     print_range_infos();
   }
 
-  //  TODO - This needs to be broken into smaller helper functions that can all
-  //  get unit tested.
+  //  TODO - This needs to be broken into smaller helper functions that can
+  //  all get unit tested.
   /// @brief   Run the setup for the laser scan callback. This will calculate
   ///          the correct index values, etc for each range and store them.
   /// @return  boolean - if configuration was successful.
@@ -335,9 +419,9 @@ private:
     curr_state_.range_infos.idx_left = {45, 135};
     curr_state_.range_infos.idx_right = {225, 315};
 
-    // Set the radian min/max ranges encase I need to compute the degree of any
-    // of my stored range's elements store the radiands start  and end values
-    // for each range.
+    // Set the radian min/max ranges encase I need to compute the degree of
+    // any of my stored range's elements store the radiands start  and end
+    // values for each range.
     const float PI = 3.14;
     const float degree_to_rad = PI / 180;
     curr_state_.range_infos.angle_rad_min_max_front_left = {
