@@ -176,8 +176,9 @@ private:
   auto controller_callback() -> void {
     RCLCPP_INFO(this->get_logger(), "CONTROLLER CALLBACK: running");
 
-    auto dist_to_front_left = curr_state_.odom_infos.distance_front_left.y;
-    auto dist_to_front_right = curr_state_.odom_infos.distance_front_right.y;
+    /// NOTE: Remember X is forward Y is left Z is up.
+    auto dist_to_front_left = curr_state_.odom_infos.distance_front_left.x;
+    auto dist_to_front_right = curr_state_.odom_infos.distance_front_right.x;
     auto front_threshold = curr_state_.controller_infos.front_treshold;
 
     // Wall not found - go find it
@@ -189,14 +190,39 @@ private:
 
         // We are close enough to a wall that we can find one.
         // Set linear & angular velocity to stop
-        // Call controller callback block 3
+        curr_state_.controller_infos.wall_found = true;
+        curr_state_.controller_infos.next_command.angular.x =
+            curr_state_.controller_infos.angular_velocity_stop;
+        curr_state_.controller_infos.next_command.angular.z =
+            curr_state_.controller_infos.linear_velocity_stop;
+        // Call controller callback block 3, first confirm that we don't have a
+        // wall picked
+        auto dist_to_right = curr_state_.odom_infos.distance_right;
+        auto dist_to_left = curr_state_.odom_infos.distance_left;
+        if (curr_state_.controller_infos.direction_to_follow ==
+            WallFollowingDirection::Unknown) {
+          if (dist_to_right.y < dist_to_left.y) {
+            curr_state_.controller_infos.direction_to_follow =
+                WallFollowingDirection::RightHandSide;
+          } else if (dist_to_right.y > dist_to_left.y) {
+            curr_state_.controller_infos.direction_to_follow =
+                WallFollowingDirection::LeftHandSide;
+          } else {
+            // We are stopped in parking spot. Do nothing.
+          }
+        }
 
       } else {
-
         // We aren't close enough to any wall to find one
         // Set linear velocity to slow and keep looking
+        curr_state_.controller_infos.next_command.linear.x =
+            curr_state_.controller_infos.linear_velocity_slow;
+        curr_state_.controller_infos.next_command.angular.z =
+            curr_state_.controller_infos.linear_velocity_stop;
       }
-    } else {
+    }
+    // We do have a wall found to follow
+    else {
 
       // We know which wall we are following so only use that front range data
       // for that side
@@ -209,7 +235,10 @@ private:
       if (dist_to_front < front_threshold) {
         // We are close to a front wall
         // Set linear velocity to slow
+        curr_state_.controller_infos.next_command.linear.x =
+            curr_state_.controller_infos.linear_velocity_slow;
         // Call controller callback block 2
+
       } else {
         // We have our wall to follow and are not close to a wall in front
         // speed up
