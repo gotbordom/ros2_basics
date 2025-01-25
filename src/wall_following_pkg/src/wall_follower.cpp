@@ -3,11 +3,14 @@
 #include <chrono>
 #include <cmath>
 #include <functional>
+#include <iostream>
 #include <limits>
 #include <memory>
 #include <numeric>
+#include <sstream>
 #include <string>
 #include <utility>
+#include <vector>
 
 // third party headers
 #include "geometry_msgs/msg/detail/point__struct.hpp"
@@ -162,8 +165,10 @@ public:
                   std::placeholders::_1),
         options2);
 
+    // For now my laser scan  callback is doing... a lot and is slow. use 30ms
+    // timer
     controller_timer = this->create_wall_timer(
-        10ms, std::bind(&WallFollowerNode::controller_callback, this),
+        30ms, std::bind(&WallFollowerNode::controller_callback, this),
         callback_group_3_);
 
     cmd_vel_pub_ =
@@ -388,8 +393,8 @@ private:
   auto calculate_vector_components(const std::pair<float, float> &v)
       -> geometry_msgs::msg::Point {
     geometry_msgs::msg::Point components;
-    components.x = std::abs(v.first * std::sin(v.second));
-    components.y = std::abs(v.first * std::cos(v.second));
+    components.x = std::abs(v.first * std::cos(v.second));
+    components.y = std::abs(v.first * std::sin(v.second));
     components.z = 0;
     return components;
   }
@@ -615,6 +620,32 @@ private:
                 curr_state_.range_infos.range_front_right.size(),
                 curr_state_.range_infos.min_front_right.first,
                 curr_state_.range_infos.min_front_right.second);
+
+    std::stringstream front_left_ss, front_right_ss, left_ss, right_ss;
+    for (const auto &val : curr_state_.range_infos.range_front_left)
+      front_left_ss << val << " ";
+    for (const auto &val : curr_state_.range_infos.range_front_right)
+      front_right_ss << val << " ";
+    for (const auto &val : curr_state_.range_infos.range_left)
+      left_ss << val << " ";
+    for (const auto &val : curr_state_.range_infos.range_right)
+      right_ss << val << " ";
+
+    std::cout << "SCAN RANGES:\n"
+                 "===========\n";
+    std::cout << "FRONT LEFT:  " << front_left_ss.str() << "\n";
+    std::cout << "LEFT:        " << left_ss.str() << "\n";
+    std::cout << "RIGHT:       " << right_ss.str() << "\n";
+    std::cout << "FRONT RIGHT: " << front_right_ss.str() << "\n";
+    // RCLCPP_INFO(this->get_logger(),
+    //             "\nSCAN RANGES\n"
+    //             "===========\n"
+    //             "FRONT LEFT:  %s\n"
+    //             "LEFT:        %s\n"
+    //             "RIGHT:       %s\n"
+    //             "FRONT RIGHT: %s\n",
+    //             front_left_ss.str(), left_ss.str(), right_ss.str(),
+    //             front_right_ss.str());
   }
 
   RobotState curr_state_, prev_state_;

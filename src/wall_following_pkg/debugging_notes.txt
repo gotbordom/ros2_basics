@@ -84,4 +84,33 @@ a.) Found that I was logging the  same value  for both FRONT LEFT and FRONT RIGH
 CHANGES MADE FOR NEXT DEBUG
 ===========================
 
+1. I updated my logging to print out all my range values
 I suspect I am setting to wide a front wall scan angle. Instead of 90degrees I am using 30.
+
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.317283, MIN ANGLE = 1.486908
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.504661, MIN ANGLE = 4.723120
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.143781, MIN ANGLE = 0.017493
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.154676, MIN ANGLE = 6.192534
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.512995603] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000058, Y = 0.499996, Yaw = 0.000367
+[wall_follower_node-1] CURR: X = 0.000059, Y = 0.499996, Yaw = 0.000368
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.513042719] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.020007, dY = 1.143606
+[wall_follower_node-1] FRONT RIGHT: dX = 0.104529, dY = 1.149935
+[wall_follower_node-1] LEFT:        dX = 0.316168, dY = 0.026585
+[wall_follower_node-1] RIGHT:       dX = 0.504632, dY = 0.005415
+[wall_follower_node-1] [0m
+
+1.) My logger written to a file with ">" terminal operator creates... issues, but regardless 
+    that is a problem for another day 
+2.) Range min/max look fine. Running the cos() sin() in wolfram alpha for confirmation looks 
+    like I am doing them backwards - though the number don't. Yeah RIGHT side is backwards
+    too, I have my x= cos and y=sin backwards

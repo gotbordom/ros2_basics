@@ -1,0 +1,1256 @@
+[INFO] [launch]: All log files can be found below /home/user/.ros/log/2025-01-25-17-32-10-032027-1_xterm-16885
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [wall_follower_node-1]: process started with pid [16887]
+[wall_follower_node-1] [0m[INFO] [1737826330.395850701] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.396003700] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] WALL FOUND: FALSE: 0[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.486508774] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.486574842] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] WALL FOUND: FALSE: 0[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.492019931] [wall_follower_node]: ODOMETRY CALLBACK: running setup[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.492092843] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000058, Y = 0.499996, Yaw = 0.000366
+[wall_follower_node-1] CURR: X = 0.000058, Y = 0.499996, Yaw = 0.000366
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.492129465] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] FRONT RIGHT: dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] LEFT:        dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] RIGHT:       dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.492161159] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000058, Y = 0.499996, Yaw = 0.000366
+[wall_follower_node-1] CURR: X = 0.000058, Y = 0.499996, Yaw = 0.000366
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.492186819] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] FRONT RIGHT: dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] LEFT:        dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] RIGHT:       dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.498379402] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000058, Y = 0.499996, Yaw = 0.000366
+[wall_follower_node-1] CURR: X = 0.000058, Y = 0.499996, Yaw = 0.000367
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.498433799] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] FRONT RIGHT: dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] LEFT:        dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] RIGHT:       dX = 0.000000, dY = 0.000000
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.502935065] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.502970480] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] WALL FOUND: FALSE: 0[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.508656050] [wall_follower_node]: LASER SCAN CALLBACK: running setup[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.508698330] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.304713, MIN ANGLE = 1.521894
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.503249, MIN ANGLE = 4.723120
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.154285, MIN ANGLE = 0.052479
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.152704, MIN ANGLE = 6.245014
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.508917267] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.16891 1.17305 1.17445 1.15429 1.17649 1.17394 1.17035 1.17783 1.18173 1.19147 1.17793 1.18998 1.19024 1.18009 1.22045 
+[wall_follower_node-1] LEFT:        0.476321 0.464467 0.435575 0.434735 0.444334 0.406179 0.420051 0.424277 0.395593 0.404173 0.408724 0.389777 0.405039 0.39666 0.379308 0.377667 0.388285 0.359915 0.349339 0.359201 0.356917 0.364452 0.365598 0.320838 0.353036 0.347739 0.347117 0.345794 0.354987 0.339093 0.350782 0.359466 0.340445 0.328753 0.340537 0.334538 0.331368 0.326439 0.340678 0.320049 0.339486 0.320871 0.304713 0.34477 0.327603 0.333912 0.332416 0.337499 0.337124 0.324702 0.342638 0.336891 0.32279 0.334083 0.326566 0.337175 0.317753 0.321754 0.321854 0.337262 0.32402 0.338311 0.337872 0.351926 0.357087 0.342503 0.360217 0.36804 0.360413 0.357069 0.342029 0.356519 0.361609 0.383014 0.366359 0.371063 0.390795 0.38295 0.388892 0.387952 0.426052 0.405421 0.402247 0.412266 0.426966 0.44441 0.437277 0.434782 0.440741 0.458026 
+[wall_follower_node-1] RIGHT:       1.29959 1.30384 1.34584 1.34994 1.37125 1.41768 1.44836 1.48979 1.52546 1.53398 1.58736 1.61875 1.67031 1.73704 1.73095 1.7018 1.66212 1.68236 1.67901 1.64757 1.64358 1.6201 1.60722 0.60166 0.577428 0.557693 0.55231 0.522408 0.544672 0.5281 0.568428 0.613731 0.672488 0.694628 1.50797 1.51173 1.50449 0.556912 0.558851 0.527659 0.533681 0.528447 0.53676 0.527382 0.511868 0.503249 1.48506 1.48951 1.48127 1.49792 1.50109 1.48835 1.48596 1.51013 1.51441 1.5279 1.53054 1.52453 1.55702 1.54195 1.52175 1.55273 1.55843 1.5714 1.58412 1.5824 1.60046 1.61618 1.6235 1.65421 1.64891 1.65126 1.67011 1.70793 0.859839 0.846739 0.869964 0.860353 0.866135 0.868974 0.853394 1.8623 1.88498 1.84169 1.81458 0.644426 0.678443 0.651983 0.673555 0.666868 
+[wall_follower_node-1] FRONT RIGHT: 1.20724 1.17799 1.18558 1.1918 1.19282 1.17196 1.17881 1.17245 1.15756 1.15508 1.16847 1.169 1.1527 1.16492 1.16571 
+[wall_follower_node-1] [0m[INFO] [1737826330.508958225] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.304713, MIN ANGLE = 1.521894
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.503249, MIN ANGLE = 4.723120
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.154285, MIN ANGLE = 0.052479
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.152704, MIN ANGLE = 6.245014
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.16891 1.17305 1.17445 1.15429 1.17649 1.17394 1.17035 1.17783 1.18173 1.19147 1.17793 1.18998 1.19024 1.18009 1.22045 
+[wall_follower_node-1] LEFT:        0.476321 0.464467 0.435575 0.434735 0.444334 0.406179 0.420051 0.424277 0.395593 0.404173 0.408724 0.389777 0.405039 0.39666 0.379308 0.377667 0.388285 0.359915 0.349339 0.359201 0.356917 0.364452 0.365598 0.320838 0.353036 0.347739 0.347117 0.345794 0.354987 0.339093 0.350782 0.359466 0.340445 0.328753 0.340537 0.334538 0.331368 0.326439 0.340678 0.320049 0.339486 0.320871 0.304713 0.34477 0.327603 0.333912 0.332416 0.337499 0.337124 0.324702 0.342638 0.336891 0.32279 0.334083 0.326566 0.337175 0.317753 0.321754 0.321854 0.337262 0.32402 0.338311 0.337872 0.351926 0.357087 0.342503 0.360217 0.36804 0.360413 0.357069 0.342029 0.356519 0.361609 0.383014 0.366359 0.371063 0.390795 0.38295 0.388892 0.387952 0.426052 0.405421 0.402247 0.412266 0.426966 0.44441 0.437277 0.434782 0.440741 0.458026 
+[wall_follower_node-1] RIGHT:       1.29959 1.30384 1.34584 1.34994 1.37125 1.41768 1.44836 1.48979 1.52546 1.53398 1.58736 1.61875 1.67031 1.73704 1.73095 1.7018 1.66212 1.68236 1.67901 1.64757 1.64358 1.6201 1.60722 0.60166 0.577428 0.557693 0.55231 0.522408 0.544672 0.5281 0.568428 0.613731 0.672488 0.694628 1.50797 1.51173 1.50449 0.556912 0.558851 0.527659 0.533681 0.528447 0.53676 0.527382 0.511868 0.503249 1.48506 1.48951 1.48127 1.49792 1.50109 1.48835 1.48596 1.51013 1.51441 1.5279 1.53054 1.52453 1.55702 1.54195 1.52175 1.55273 1.55843 1.5714 1.58412 1.5824 1.60046 1.61618 1.6235 1.65421 1.64891 1.65126 1.67011 1.70793 0.859839 0.846739 0.869964 0.860353 0.866135 0.868974 0.853394 1.8623 1.88498 1.84169 1.81458 0.644426 0.678443 0.651983 0.673555 0.666868 
+[wall_follower_node-1] FRONT RIGHT: 1.20724 1.17799 1.18558 1.1918 1.19282 1.17196 1.17881 1.17245 1.15756 1.15508 1.16847 1.169 1.1527 1.16492 1.16571 
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.15968 1.14378 1.15125 1.16779 1.15488 1.1563 1.1679 1.18401 1.176 1.1802 1.18546 1.18832 1.17806 1.1857 1.19518 
+[wall_follower_node-1] LEFT:        0.465098 0.441018 0.449207 0.457464 0.426175 0.421484 0.413385 0.415217 0.412101 0.404057 0.410056 0.400106 0.375831 0.385224 0.373603 0.376446 0.388971 0.36757 0.361576 0.382229 0.372965 0.348859 0.342916 0.354992 0.362604 0.331945 0.357011 0.361107 0.352463 0.350444 0.349874 0.327134 0.336725 0.342723 0.337836 0.323145 0.331535 0.33676 0.326773 0.339464 0.317283 0.342876 0.32638 0.347011 0.340026 0.318685 0.328492 0.334698 0.345499 0.334126 0.340627 0.340124 0.319092 0.341358 0.335327 0.328481 0.351968 0.332235 0.33782 0.34644 0.341388 0.348159 0.34449 0.351036 0.343777 0.33621 0.346839 0.358649 0.369605 0.371069 0.366773 0.362299 0.368718 0.377629 0.367392 0.38327 0.389968 0.3934 0.397698 0.414002 0.424842 0.397967 0.423596 0.428552 0.419881 0.432671 0.422314 0.448233 0.448033 0.440538 
+[wall_follower_node-1] RIGHT:       1.28246 1.30373 1.31222 1.35618 1.38892 1.40478 1.44481 1.4669 1.51542 1.55636 1.60171 1.63667 1.66358 1.72296 1.70861 1.73012 1.68487 1.68175 1.65155 1.636 1.61854 1.63104 1.60826 0.571803 0.573301 0.562638 0.546998 0.536995 0.533572 0.538956 0.562742 0.620206 0.648148 0.705041 1.50468 1.50698 1.50171 0.556108 0.546096 0.550698 0.536951 0.529565 0.527862 0.524547 0.51782 0.504661 1.48879 1.48433 1.48765 1.49789 1.50015 1.47474 1.49359 1.50519 1.49953 1.5063 1.51405 1.52353 1.5188 1.53733 1.55087 1.54469 1.55455 1.55711 1.58433 1.57713 1.59962 1.61854 1.62106 1.63238 1.65235 1.65496 1.67712 1.68252 0.87185 0.87132 0.844492 0.86262 0.862679 0.848386 0.872339 1.85247 1.88033 1.85364 1.82119 0.651484 0.636996 0.662854 0.653276 0.66606 
+[wall_follower_node-1] FRONT RIGHT: 1.18936 1.20434 1.18156 1.19928 1.16114 1.18248 1.17121 1.17264 1.18192 1.15468 1.17298 1.15687 1.16101 1.16825 1.15766 
+[wall_follower_node-1] [0m[INFO] [1737826330.509207699] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.509248329] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.317283, MIN ANGLE = 1.486908
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.504661, MIN ANGLE = 4.723120
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.143781, MIN ANGLE = 0.017493
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.154676, MIN ANGLE = 6.192534
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.512995603] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000058, Y = 0.499996, Yaw = 0.000367
+[wall_follower_node-1] CURR: X = 0.000059, Y = 0.499996, Yaw = 0.000368
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.513042719] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.020007, dY = 1.143606
+[wall_follower_node-1] FRONT RIGHT: dX = 0.104529, dY = 1.149935
+[wall_follower_node-1] LEFT:        dX = 0.316168, dY = 0.026585
+[wall_follower_node-1] RIGHT:       dX = 0.504632, dY = 0.005415
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.532942064] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.532988173] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.536845064] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000059, Y = 0.499996, Yaw = 0.000368
+[wall_follower_node-1] CURR: X = 0.000059, Y = 0.499996, Yaw = 0.000369
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.536884381] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.020007, dY = 1.143606
+[wall_follower_node-1] FRONT RIGHT: dX = 0.104529, dY = 1.149935
+[wall_follower_node-1] LEFT:        dX = 0.316168, dY = 0.026585
+[wall_follower_node-1] RIGHT:       dX = 0.504632, dY = 0.005415
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.586315819] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.586397454] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.586723197] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000059, Y = 0.499996, Yaw = 0.000369
+[wall_follower_node-1] CURR: X = 0.000060, Y = 0.499996, Yaw = 0.000369
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.586768032] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.020007, dY = 1.143606
+[wall_follower_node-1] FRONT RIGHT: dX = 0.104529, dY = 1.149935
+[wall_follower_node-1] LEFT:        dX = 0.316168, dY = 0.026585
+[wall_follower_node-1] RIGHT:       dX = 0.504632, dY = 0.005415
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.588136608] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.588180184] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.300113, MIN ANGLE = 1.574373
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.495538, MIN ANGLE = 4.670640
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.147989, MIN ANGLE = 0.069972
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.138582, MIN ANGLE = 6.245014
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.16243 1.16505 1.15015 1.17018 1.14799 1.17348 1.17747 1.15177 1.17558 1.16628 1.18658 1.18874 1.17808 1.18932 1.19616 
+[wall_follower_node-1] LEFT:        0.473304 0.437073 0.432407 0.434415 0.435296 0.418341 0.401405 0.428801 0.415535 0.408477 0.39176 0.401202 0.399577 0.390008 0.390631 0.385616 0.383598 0.382314 0.363239 0.365035 0.360215 0.348581 0.362173 0.353561 0.339087 0.336763 0.341903 0.340204 0.343695 0.339044 0.325758 0.334337 0.335476 0.342359 0.320995 0.321601 0.322026 0.324977 0.328343 0.334975 0.307786 0.341119 0.32744 0.32224 0.318387 0.300113 0.350539 0.326861 0.339714 0.321832 0.324139 0.343868 0.316881 0.314716 0.327914 0.332865 0.339898 0.346948 0.340354 0.337074 0.347702 0.333658 0.334319 0.337972 0.339175 0.365748 0.346699 0.358005 0.349055 0.355379 0.353352 0.35563 0.372666 0.389897 0.38339 0.377735 0.385536 0.389805 0.392598 0.409968 0.402782 0.396748 0.424909 0.417832 0.436937 0.441038 0.428322 0.452888 0.452828 0.452752 
+[wall_follower_node-1] RIGHT:       1.29817 1.30344 1.32677 1.35318 1.41348 1.41719 1.45024 1.46533 1.51701 1.54392 1.58088 1.63132 1.6682 1.73342 1.73532 1.71309 1.70784 1.68803 1.65842 1.65221 1.61923 1.63671 1.57731 0.604457 0.57257 0.561507 0.561283 0.551553 0.547516 0.513764 0.566959 0.617422 0.679361 0.71405 1.51093 1.50756 1.48748 0.522992 0.543184 0.523381 0.538977 0.513906 0.495538 0.517077 0.505897 0.499492 1.49467 1.49813 1.47907 1.49315 1.49879 1.49367 1.48373 1.48938 1.50795 1.52291 1.50432 1.53949 1.55234 1.55255 1.53373 1.564 1.57866 1.55828 1.57891 1.60316 1.61023 1.60726 1.6134 1.63297 1.64238 1.67113 1.67068 1.69714 0.859737 0.868552 0.854527 0.857694 0.874863 0.865823 0.873655 1.85894 1.87293 1.85379 1.83945 0.661072 0.661909 0.653761 0.654739 0.65845 
+[wall_follower_node-1] FRONT RIGHT: 1.21862 1.1795 1.18518 1.18976 1.19806 1.17327 1.17563 1.17586 1.1702 1.15722 1.16873 1.18251 1.13858 1.16735 1.17013 
+[wall_follower_node-1] [0m[INFO] [1737826330.592930510] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.592965283] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.599212485] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000060, Y = 0.499996, Yaw = 0.000369
+[wall_follower_node-1] CURR: X = 0.000060, Y = 0.499996, Yaw = 0.000370
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.599255750] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.080262, dY = 1.145180
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043451, dY = 1.137753
+[wall_follower_node-1] LEFT:        dX = 0.300111, dY = 0.001073
+[wall_follower_node-1] RIGHT:       dX = 0.495106, dY = 0.020682
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.622954564] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.623014643] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.686411547] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.686490560] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.692350774] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.000060, Y = 0.499996, Yaw = 0.000370
+[wall_follower_node-1] CURR: X = 0.001211, Y = 0.499996, Yaw = 0.000371
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.692414392] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.080262, dY = 1.145180
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043451, dY = 1.137753
+[wall_follower_node-1] LEFT:        dX = 0.300111, dY = 0.001073
+[wall_follower_node-1] RIGHT:       dX = 0.495106, dY = 0.020682
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.702538678] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.001211, Y = 0.499996, Yaw = 0.000371
+[wall_follower_node-1] CURR: X = 0.003520, Y = 0.499996, Yaw = 0.000372
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.702599494] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.080262, dY = 1.145180
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043451, dY = 1.137753
+[wall_follower_node-1] LEFT:        dX = 0.300111, dY = 0.001073
+[wall_follower_node-1] RIGHT:       dX = 0.495106, dY = 0.020682
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.709043117] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.709088463] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.320375, MIN ANGLE = 1.574373
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.507012, MIN ANGLE = 4.688134
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.158649, MIN ANGLE = 0.104958
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.151302, MIN ANGLE = 6.245014
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.1598 1.16106 1.16261 1.16392 1.15875 1.17155 1.15865 1.17129 1.17441 1.17023 1.17578 1.17341 1.18464 1.19795 1.1929 
+[wall_follower_node-1] LEFT:        0.458478 0.433589 0.446909 0.420374 0.45173 0.404695 0.408868 0.413711 0.419019 0.404305 0.397534 0.404188 0.382 0.394457 0.380592 0.366706 0.373707 0.365992 0.349915 0.363274 0.369034 0.352176 0.36805 0.366105 0.335874 0.336982 0.362006 0.341803 0.339395 0.348458 0.35297 0.33391 0.323595 0.346576 0.32194 0.325734 0.33247 0.326946 0.322719 0.325509 0.330556 0.32166 0.321606 0.320907 0.328739 0.320375 0.332355 0.329201 0.338988 0.329126 0.331202 0.331065 0.332362 0.334951 0.328374 0.330832 0.335845 0.351447 0.336753 0.33624 0.354631 0.341713 0.339999 0.351558 0.348211 0.348719 0.351468 0.347668 0.357161 0.347481 0.372068 0.353853 0.361967 0.37649 0.380836 0.376166 0.375264 0.401746 0.390477 0.400086 0.406915 0.393304 0.417998 0.424395 0.44181 0.424447 0.447526 0.45195 0.445342 0.456265 
+[wall_follower_node-1] RIGHT:       1.29562 1.30315 1.34977 1.37627 1.39001 1.42212 1.44689 1.49 1.52536 1.54765 1.59205 1.66045 1.68559 1.72466 1.736 1.71647 1.68849 1.6689 1.65837 1.64305 1.63438 1.58659 0.581249 0.568952 0.55826 0.557324 0.541747 0.537994 0.530408 0.539442 0.578413 0.683597 0.682999 0.724492 1.5235 1.5098 1.50297 0.56825 0.539492 0.526724 0.51543 0.528623 0.524734 0.507012 0.520259 1.486 1.48351 1.49355 1.51147 1.47972 1.51204 1.4942 1.48341 1.49777 1.50489 1.51031 1.5142 1.53135 1.54171 1.51749 1.54613 1.57068 1.55123 1.5622 1.571 1.58951 1.60907 1.60663 1.59865 1.64057 1.66647 1.66436 1.69647 1.70142 0.876203 0.854562 0.866431 0.859888 0.862085 0.858881 0.85952 1.85092 1.87727 1.85955 1.80031 0.651826 0.655576 0.675854 0.662301 0.667533 
+[wall_follower_node-1] FRONT RIGHT: 1.19935 1.18872 1.19704 1.1812 1.18234 1.16958 1.16873 1.15573 1.16176 1.15493 1.15959 1.15928 1.1513 1.15636 1.1622 
+[wall_follower_node-1] [0m[INFO] [1737826330.712931803] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.712979167] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.719578354] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.003520, Y = 0.499996, Yaw = 0.000372
+[wall_follower_node-1] CURR: X = 0.006676, Y = 0.499998, Yaw = 0.000366
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.719618826] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.121387, dY = 1.152273
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043936, dY = 1.150463
+[wall_follower_node-1] LEFT:        dX = 0.320373, dY = 0.001146
+[wall_follower_node-1] RIGHT:       dX = 0.506862, dY = 0.012296
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.742943253] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.742989415] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.772942720] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.772992224] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.786427008] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.006676, Y = 0.499998, Yaw = 0.000366
+[wall_follower_node-1] CURR: X = 0.010064, Y = 0.500009, Yaw = 0.000333
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.786487131] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.121387, dY = 1.152273
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043936, dY = 1.150463
+[wall_follower_node-1] LEFT:        dX = 0.320373, dY = 0.001146
+[wall_follower_node-1] RIGHT:       dX = 0.506862, dY = 0.012296
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.798987044] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.010064, Y = 0.500009, Yaw = 0.000333
+[wall_follower_node-1] CURR: X = 0.013448, Y = 0.500045, Yaw = 0.000270
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.799038931] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.121387, dY = 1.152273
+[wall_follower_node-1] FRONT RIGHT: dX = 0.043936, dY = 1.150463
+[wall_follower_node-1] LEFT:        dX = 0.320373, dY = 0.001146
+[wall_follower_node-1] RIGHT:       dX = 0.506862, dY = 0.012296
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.802893288] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.802932555] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.804673014] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.804713371] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.306623, MIN ANGLE = 1.696824
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.498926, MIN ANGLE = 4.635654
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.140492, MIN ANGLE = 0.000000
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.138297, MIN ANGLE = 6.280000
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.14049 1.15263 1.16527 1.15 1.18009 1.17112 1.14405 1.15214 1.16492 1.15291 1.16755 1.17712 1.18385 1.19113 1.21042 
+[wall_follower_node-1] LEFT:        0.460077 0.458773 0.448468 0.420713 0.438515 0.430073 0.422607 0.413088 0.4132 0.402808 0.397639 0.378414 0.390418 0.380634 0.373561 0.385691 0.378618 0.380861 0.372855 0.357221 0.363066 0.334784 0.365334 0.358769 0.35013 0.328736 0.34784 0.337649 0.335149 0.320326 0.322257 0.336992 0.342313 0.320287 0.315702 0.339353 0.331668 0.31697 0.312992 0.344491 0.319953 0.33691 0.320602 0.347228 0.330039 0.333221 0.328623 0.330503 0.322812 0.337597 0.337408 0.331653 0.306623 0.336396 0.329757 0.337728 0.342265 0.348242 0.351073 0.341674 0.339753 0.346333 0.342167 0.357479 0.34174 0.358724 0.335992 0.362508 0.356476 0.362377 0.390059 0.363266 0.37137 0.357146 0.381672 0.386363 0.373775 0.395027 0.39217 0.387411 0.395957 0.41316 0.414945 0.412203 0.441709 0.438907 0.446073 0.441741 0.45148 0.462996 
+[wall_follower_node-1] RIGHT:       1.32583 1.36466 1.37557 1.40756 1.46004 1.49361 1.50665 1.55871 1.58151 1.60304 1.67663 1.70379 1.74729 1.70932 1.68138 1.68181 1.6857 1.65786 1.63761 1.64019 0.602853 0.603824 0.546867 0.563188 0.554536 0.533657 0.51864 0.539521 0.590442 0.67893 0.676804 0.728171 1.52556 1.53346 0.565467 0.531967 0.559012 0.535958 0.528754 0.526877 0.498926 0.514739 0.504985 1.49245 1.50869 1.4834 1.47702 1.47192 1.4955 1.4851 1.51609 1.50874 1.50772 1.52603 1.52365 1.51849 1.51703 1.53706 1.5192 1.54147 1.55974 1.56283 1.57784 1.56646 1.59563 1.60061 1.6258 1.61422 1.64734 1.67248 1.67119 1.6786 0.82847 0.841911 0.858774 0.839452 0.849665 0.861129 0.860036 1.84521 1.86855 1.85992 1.82571 0.664815 0.648048 0.676201 0.649394 0.652842 0.656854 0.66674 
+[wall_follower_node-1] FRONT RIGHT: 1.1815 1.14896 1.16266 1.17207 1.19877 1.15722 1.1712 1.14704 1.1412 1.14067 1.14819 1.15386 1.14821 1.15455 1.1383 
+[wall_follower_node-1] [0m[INFO] [1737826330.886349986] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.886434701] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.888405640] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.013448, Y = 0.500045, Yaw = 0.000270
+[wall_follower_node-1] CURR: X = 0.016831, Y = 0.500114, Yaw = 0.000201
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.888459451] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 1.140492
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003626, dY = 1.138291
+[wall_follower_node-1] LEFT:        dX = 0.304192, dY = 0.038541
+[wall_follower_node-1] RIGHT:       dX = 0.497457, dY = 0.038247
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.892943502] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.892985519] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.896150265] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.016831, Y = 0.500114, Yaw = 0.000201
+[wall_follower_node-1] CURR: X = 0.020216, Y = 0.500213, Yaw = 0.000149
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.896200697] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 1.140492
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003626, dY = 1.138291
+[wall_follower_node-1] LEFT:        dX = 0.304192, dY = 0.038541
+[wall_follower_node-1] RIGHT:       dX = 0.497457, dY = 0.038247
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.909095566] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.020216, Y = 0.500213, Yaw = 0.000149
+[wall_follower_node-1] CURR: X = 0.023603, Y = 0.500333, Yaw = 0.000113
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.909136759] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.000000, dY = 1.140492
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003626, dY = 1.138291
+[wall_follower_node-1] LEFT:        dX = 0.304192, dY = 0.038541
+[wall_follower_node-1] RIGHT:       dX = 0.497457, dY = 0.038247
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.914025710] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.914073193] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.311686, MIN ANGLE = 1.591866
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.504591, MIN ANGLE = 4.618161
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.123053, MIN ANGLE = 0.052479
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.110024, MIN ANGLE = 6.227520
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.12796 1.13804 1.13667 1.12305 1.15247 1.16114 1.15314 1.16099 1.1663 1.1827 1.16523 1.16226 1.17002 1.18124 1.17272 
+[wall_follower_node-1] LEFT:        0.443203 0.450908 0.450058 0.437862 0.441727 0.411726 0.399327 0.396375 0.377776 0.379774 0.404797 0.36626 0.392417 0.394905 0.371722 0.373079 0.374349 0.365161 0.36205 0.362547 0.371585 0.34062 0.34852 0.367056 0.33449 0.338551 0.34517 0.356014 0.35086 0.330443 0.332206 0.343488 0.331748 0.328738 0.322001 0.330892 0.335741 0.322015 0.326188 0.324033 0.317339 0.319262 0.323222 0.34107 0.329093 0.329524 0.311686 0.345069 0.325752 0.330198 0.338452 0.317742 0.323515 0.335008 0.343393 0.340007 0.338752 0.347207 0.34007 0.334459 0.339546 0.358498 0.349106 0.334077 0.34982 0.357072 0.359076 0.349349 0.366009 0.373734 0.366582 0.372434 0.369313 0.369606 0.368983 0.400965 0.405852 0.422019 0.412184 0.414941 0.419852 0.418224 0.441142 0.446828 0.422983 0.438883 0.455725 0.445305 0.463242 0.496326 
+[wall_follower_node-1] RIGHT:       1.35289 1.41025 1.42734 1.45256 1.48166 1.53652 1.56924 1.60719 1.62804 1.67894 1.74395 1.72015 1.72163 1.71344 1.67356 1.67911 1.6554 1.6521 0.594618 0.596459 0.54964 0.547144 0.551785 0.521792 0.534806 0.557104 0.602124 0.691098 0.668612 0.740588 1.50125 1.50757 0.563607 0.548864 0.53136 0.532343 0.533673 0.527597 0.513308 0.504591 0.519478 0.707795 1.47216 1.49924 1.49668 1.49813 1.49845 1.49178 1.48579 1.4999 1.51513 1.50763 1.50779 1.52446 1.52125 1.54441 1.52248 1.53755 1.5478 1.54277 1.56759 1.57323 1.5711 1.585 1.61048 1.61382 1.62825 1.63308 1.65291 1.67717 1.66723 0.85612 0.850116 0.842153 0.854473 0.8472 0.853329 1.81909 1.83044 1.85118 1.83866 0.642694 0.629979 0.645941 0.636649 0.637017 0.656407 0.650488 0.658459 0.653778 
+[wall_follower_node-1] FRONT RIGHT: 1.16265 1.18834 1.13212 1.14984 1.16287 1.15105 1.12858 1.15148 1.14294 1.13618 1.14517 1.11002 1.12586 1.12505 1.14102 
+[wall_follower_node-1] [0m[INFO] [1737826330.922937874] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.922973877] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.928587434] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.023603, Y = 0.500333, Yaw = 0.000113
+[wall_follower_node-1] CURR: X = 0.026990, Y = 0.500468, Yaw = 0.000074
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.928640611] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.058910, dY = 1.121507
+[wall_follower_node-1] FRONT RIGHT: dX = 0.061757, dY = 1.108305
+[wall_follower_node-1] LEFT:        dX = 0.311617, dY = 0.006567
+[wall_follower_node-1] RIGHT:       dX = 0.502353, dY = 0.047476
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.986305705] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.986390780] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826330.994292584] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.026990, Y = 0.500468, Yaw = 0.000074
+[wall_follower_node-1] CURR: X = 0.030374, Y = 0.500624, Yaw = 0.000022
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826330.994375529] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.058910, dY = 1.121507
+[wall_follower_node-1] FRONT RIGHT: dX = 0.061757, dY = 1.108305
+[wall_follower_node-1] LEFT:        dX = 0.311617, dY = 0.006567
+[wall_follower_node-1] RIGHT:       dX = 0.502353, dY = 0.047476
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.010478502] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.030374, Y = 0.500624, Yaw = 0.000022
+[wall_follower_node-1] CURR: X = 0.033757, Y = 0.500806, Yaw = -0.000040
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.010532259] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.058910, dY = 1.121507
+[wall_follower_node-1] FRONT RIGHT: dX = 0.061757, dY = 1.108305
+[wall_follower_node-1] LEFT:        dX = 0.311617, dY = 0.006567
+[wall_follower_node-1] RIGHT:       dX = 0.502353, dY = 0.047476
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.012928425] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.012954506] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.014194862] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.014234411] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.307491, MIN ANGLE = 1.644345
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.491689, MIN ANGLE = 4.600668
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.083506, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.118844, MIN ANGLE = 6.210028
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.13912 1.14048 1.13922 1.13633 1.13764 1.135 1.15641 1.13709 1.14261 1.1581 1.16353 1.1711 1.1617 1.16685 1.08351 
+[wall_follower_node-1] LEFT:        0.434614 0.43334 0.444023 0.42713 0.435653 0.404801 0.411637 0.384052 0.385598 0.398136 0.403776 0.390621 0.380477 0.358796 0.370412 0.357107 0.376187 0.346426 0.346939 0.366014 0.34798 0.355199 0.356 0.34481 0.340538 0.345397 0.346081 0.330902 0.336945 0.324834 0.321532 0.339676 0.337887 0.337837 0.334411 0.309639 0.330141 0.342882 0.345374 0.338884 0.327141 0.320061 0.32602 0.322995 0.35417 0.326134 0.330567 0.32567 0.333457 0.307491 0.334031 0.340802 0.340802 0.33788 0.333253 0.3317 0.343923 0.332429 0.34621 0.368983 0.337694 0.348799 0.343114 0.346955 0.350481 0.367277 0.345451 0.358826 0.37466 0.387376 0.378954 0.373034 0.384586 0.382274 0.389137 0.389416 0.403487 0.393589 0.416846 0.422886 0.407217 0.417091 0.431858 0.448628 0.43975 0.455173 0.438866 0.476735 0.466608 0.475979 
+[wall_follower_node-1] RIGHT:       1.43016 1.44635 1.48877 1.51957 1.56613 1.57694 1.62679 1.68014 1.7209 1.76047 1.72305 1.71624 1.71821 1.67199 1.6766 1.65873 0.613972 0.5915 0.586495 0.569868 0.541123 0.54921 0.545259 0.580072 0.613894 0.704677 0.675047 0.73387 1.52126 1.50648 0.556955 0.543221 0.529769 0.544546 0.532226 0.53118 0.511196 0.51462 0.491689 0.708827 1.4749 1.50142 1.47463 1.47642 1.49356 1.49553 1.49954 1.47752 1.48582 1.51745 1.5023 1.51002 1.50889 1.51148 1.53422 1.54087 1.53683 1.54277 1.53929 1.54368 1.57393 1.60449 1.60456 1.60017 1.61005 1.62425 1.64008 1.65904 1.66835 0.854382 0.837336 0.828412 0.837104 0.853763 0.840979 0.851036 1.81746 1.84269 1.87011 0.634679 0.641958 0.61744 0.620672 0.655024 0.643564 0.650979 0.656228 0.648047 1.54611 1.52769 
+[wall_follower_node-1] FRONT RIGHT: 1.14817 1.15276 1.12614 1.14165 1.13464 1.12035 1.13337 1.16088 1.15047 1.12428 1.11884 1.13059 1.12653 1.13398 1.12029 
+[wall_follower_node-1] [0m[INFO] [1737826331.086467808] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.086560138] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.095500711] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.033757, Y = 0.500806, Yaw = -0.000040
+[wall_follower_node-1] CURR: X = 0.037139, Y = 0.501015, Yaw = -0.000099
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.095575363] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.262709, dY = 1.051175
+[wall_follower_node-1] FRONT RIGHT: dX = 0.081779, dY = 1.115851
+[wall_follower_node-1] LEFT:        dX = 0.306660, dY = 0.022595
+[wall_follower_node-1] RIGHT:       dX = 0.488624, dY = 0.054818
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.102942897] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.102989395] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.117121314] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.037139, Y = 0.501015, Yaw = -0.000099
+[wall_follower_node-1] CURR: X = 0.040520, Y = 0.501247, Yaw = -0.000151
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.117187356] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.262709, dY = 1.051175
+[wall_follower_node-1] FRONT RIGHT: dX = 0.081779, dY = 1.115851
+[wall_follower_node-1] LEFT:        dX = 0.306660, dY = 0.022595
+[wall_follower_node-1] RIGHT:       dX = 0.488624, dY = 0.054818
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.132951008] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.133006235] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.186326092] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.186890040] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.191360658] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.040520, Y = 0.501247, Yaw = -0.000151
+[wall_follower_node-1] CURR: X = 0.043901, Y = 0.501500, Yaw = -0.000202
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.191417620] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.262709, dY = 1.051175
+[wall_follower_node-1] FRONT RIGHT: dX = 0.081779, dY = 1.115851
+[wall_follower_node-1] LEFT:        dX = 0.306660, dY = 0.022595
+[wall_follower_node-1] RIGHT:       dX = 0.488624, dY = 0.054818
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.192938379] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.192988824] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.195008607] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.195059184] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.311865, MIN ANGLE = 1.346964
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.501422, MIN ANGLE = 4.548189
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 1.030666, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.105389, MIN ANGLE = 6.280000
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.11739 1.13347 1.1271 1.12164 1.10877 1.13768 1.13767 1.14125 1.14116 1.15175 1.15474 1.14722 1.1514 1.08918 1.03067 
+[wall_follower_node-1] LEFT:        0.44163 0.437274 0.434095 0.417352 0.401458 0.402437 0.397595 0.385569 0.394668 0.382677 0.376136 0.371828 0.394652 0.380262 0.370973 0.369361 0.365065 0.362356 0.355125 0.349226 0.341499 0.346188 0.347344 0.345138 0.346836 0.338921 0.342932 0.316973 0.361394 0.330074 0.337098 0.347274 0.311865 0.314418 0.320622 0.330492 0.333252 0.320998 0.335622 0.339457 0.348372 0.324986 0.331407 0.338766 0.322384 0.333301 0.342719 0.321726 0.319788 0.319069 0.321662 0.324157 0.329252 0.329244 0.333959 0.332069 0.354423 0.356378 0.333586 0.354685 0.35371 0.347692 0.349223 0.362945 0.337821 0.346386 0.370541 0.356009 0.368974 0.368718 0.367142 0.379994 0.397804 0.374849 0.398962 0.397554 0.40091 0.426523 0.440845 0.431472 0.418137 0.441042 0.442542 0.44898 0.450033 0.47326 0.464213 0.487868 0.492668 0.509063 
+[wall_follower_node-1] RIGHT:       1.46405 1.49104 1.54254 1.56275 1.60808 1.65133 1.70938 1.7442 1.74787 1.73886 1.72357 1.68993 1.68472 1.67411 0.602929 0.597199 0.592569 0.58494 0.532414 0.531681 0.542395 0.568904 0.580848 0.696182 0.692537 0.718777 0.783055 1.52932 0.561396 0.548463 0.545464 0.556764 0.510706 0.526635 0.508257 0.501422 0.515538 0.678803 1.4812 1.4882 1.47394 1.48428 1.47895 1.47879 1.4888 1.49278 1.49977 1.50902 1.48708 1.50876 1.50287 1.50481 1.51647 1.53898 1.53682 1.53592 1.55294 1.54481 1.57105 1.57312 1.58079 1.59681 1.60873 1.61379 1.63574 1.65911 1.65722 0.835792 0.832305 0.832696 0.842566 0.845954 0.834636 0.847246 1.77924 1.82038 1.84583 1.85446 0.623294 0.607931 0.634386 0.614976 0.637854 0.645647 0.658823 0.678613 1.54152 1.51523 1.4901 1.46461 
+[wall_follower_node-1] FRONT RIGHT: 1.13274 1.12471 1.13711 1.11702 1.12234 1.13317 1.11529 1.11379 1.12854 1.11453 1.1104 1.11092 1.10839 1.11259 1.10539 
+[wall_follower_node-1] [0m[INFO] [1737826331.222965963] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.223039171] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.225597580] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.043901, Y = 0.501500, Yaw = -0.000202
+[wall_follower_node-1] CURR: X = 0.047281, Y = 0.501774, Yaw = -0.000258
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.225655713] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.249897, dY = 0.999912
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003521, dY = 1.105384
+[wall_follower_node-1] LEFT:        dX = 0.304085, dY = 0.069224
+[wall_follower_node-1] RIGHT:       dX = 0.494678, dY = 0.081964
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.286336910] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.286412617] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.298878541] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.047281, Y = 0.501774, Yaw = -0.000258
+[wall_follower_node-1] CURR: X = 0.050660, Y = 0.502071, Yaw = -0.000318
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.299414806] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.249897, dY = 0.999912
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003521, dY = 1.105384
+[wall_follower_node-1] LEFT:        dX = 0.304085, dY = 0.069224
+[wall_follower_node-1] RIGHT:       dX = 0.494678, dY = 0.081964
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.312981468] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.313060240] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.317099106] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.050660, Y = 0.502071, Yaw = -0.000318
+[wall_follower_node-1] CURR: X = 0.054035, Y = 0.502392, Yaw = -0.000375
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.317150977] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.249897, dY = 0.999912
+[wall_follower_node-1] FRONT RIGHT: dX = 0.003521, dY = 1.105384
+[wall_follower_node-1] LEFT:        dX = 0.304085, dY = 0.069224
+[wall_follower_node-1] RIGHT:       dX = 0.494678, dY = 0.081964
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.319113693] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.319172419] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.312470, MIN ANGLE = 1.259499
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.502170, MIN ANGLE = 4.478217
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.960993, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.095360, MIN ANGLE = 6.140056
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.11881 1.12846 1.1075 1.11385 1.13907 1.12469 1.15172 1.1437 1.14429 1.14919 1.15514 1.13597 1.0645 1.04346 0.960993 
+[wall_follower_node-1] LEFT:        0.412856 0.414885 0.430365 0.411876 0.384382 0.39635 0.403198 0.39262 0.388152 0.376391 0.373088 0.350964 0.375824 0.361742 0.356492 0.36038 0.355318 0.350781 0.355522 0.336322 0.34396 0.343369 0.34832 0.343032 0.324257 0.353906 0.347313 0.31247 0.342046 0.345414 0.325211 0.344783 0.319929 0.314767 0.328872 0.337647 0.313825 0.338661 0.320653 0.319417 0.328997 0.340961 0.330262 0.329457 0.342842 0.328603 0.328457 0.334056 0.345588 0.34382 0.323406 0.320576 0.335895 0.351882 0.331809 0.350152 0.335427 0.342191 0.361669 0.347154 0.353268 0.348397 0.35383 0.362236 0.33563 0.369463 0.379856 0.355642 0.370502 0.382188 0.386253 0.379663 0.416766 0.388875 0.420826 0.412489 0.420171 0.420018 0.432477 0.445167 0.435706 0.42783 0.450473 0.462641 0.455494 0.482627 0.480177 0.492731 0.505631 0.514435 
+[wall_follower_node-1] RIGHT:       1.53284 1.57148 1.58919 1.62661 1.66925 1.72516 1.754 1.75651 1.72748 1.70771 1.69593 1.67663 0.616402 0.604592 0.597935 0.588178 0.561711 0.552586 0.560975 0.583336 0.596448 0.694705 0.678323 0.723658 0.79011 1.50037 0.560629 0.529465 0.523265 0.540721 0.52671 0.50217 0.512968 0.50782 0.539472 0.692434 1.50014 1.48382 1.48505 1.48348 1.50065 1.48388 1.52021 1.50168 1.49555 1.49192 1.49479 1.49237 1.52361 1.52841 1.50419 1.52027 1.53552 1.53418 1.53772 1.54633 1.55053 1.57585 1.55345 1.58077 1.60994 1.60662 1.62267 1.62865 1.64107 0.830359 0.842141 0.834612 0.830918 0.859254 0.846105 0.829945 1.77674 1.79958 1.81586 1.83599 0.627114 0.627764 0.628362 0.631605 0.630439 0.635844 0.628937 0.63735 1.54635 1.53587 1.49907 1.46708 1.45087 1.447 
+[wall_follower_node-1] FRONT RIGHT: 1.14515 1.11453 1.12645 1.1065 1.12913 1.10719 1.09536 1.11 1.10813 1.11008 1.11475 1.11357 1.11319 1.10608 1.10708 
+[wall_follower_node-1] [0m[INFO] [1737826331.342949836] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.343003344] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.372945453] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.372992841] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.387792905] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.054035, Y = 0.502392, Yaw = -0.000375
+[wall_follower_node-1] CURR: X = 0.057407, Y = 0.502738, Yaw = -0.000423
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.387857807] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.233004, dY = 0.932318
+[wall_follower_node-1] FRONT RIGHT: dX = 0.156244, dY = 1.084159
+[wall_follower_node-1] LEFT:        dX = 0.297452, dY = 0.095708
+[wall_follower_node-1] RIGHT:       dX = 0.488464, dY = 0.116522
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.402950710] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.403003354] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.406744237] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.057407, Y = 0.502738, Yaw = -0.000423
+[wall_follower_node-1] CURR: X = 0.060776, Y = 0.503106, Yaw = -0.000461
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.406838084] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.233004, dY = 0.932318
+[wall_follower_node-1] FRONT RIGHT: dX = 0.156244, dY = 1.084159
+[wall_follower_node-1] LEFT:        dX = 0.297452, dY = 0.095708
+[wall_follower_node-1] RIGHT:       dX = 0.488464, dY = 0.116522
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.424714230] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.060776, Y = 0.503106, Yaw = -0.000461
+[wall_follower_node-1] CURR: X = 0.064143, Y = 0.503495, Yaw = -0.000489
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.424790847] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.233004, dY = 0.932318
+[wall_follower_node-1] FRONT RIGHT: dX = 0.156244, dY = 1.084159
+[wall_follower_node-1] LEFT:        dX = 0.297452, dY = 0.095708
+[wall_follower_node-1] RIGHT:       dX = 0.488464, dY = 0.116522
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.425319705] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.425367330] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.309332, MIN ANGLE = 1.276992
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.493416, MIN ANGLE = 4.478217
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.933959, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.085755, MIN ANGLE = 6.140056
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.10247 1.1093 1.10737 1.10844 1.12942 1.13054 1.12054 1.12884 1.12966 1.14013 1.1469 1.10372 1.00782 0.949411 0.933959 
+[wall_follower_node-1] LEFT:        0.407565 0.419055 0.402494 0.401342 0.401122 0.379419 0.384654 0.384729 0.363838 0.36745 0.368994 0.374728 0.359344 0.352082 0.365478 0.341235 0.347072 0.354172 0.350462 0.358192 0.354174 0.336951 0.344916 0.351177 0.339295 0.341499 0.333362 0.350243 0.309332 0.322133 0.323219 0.344873 0.339195 0.336168 0.336253 0.314144 0.332892 0.325105 0.331898 0.324865 0.330559 0.323226 0.322248 0.331356 0.336659 0.318712 0.34033 0.321549 0.327052 0.341118 0.313801 0.346839 0.342361 0.35016 0.334448 0.349414 0.363123 0.331193 0.343728 0.357369 0.351371 0.349758 0.356856 0.363086 0.368592 0.375262 0.386843 0.375323 0.372625 0.376247 0.364188 0.388304 0.400354 0.423697 0.409806 0.41339 0.40619 0.424906 0.419405 0.434073 0.448896 0.444253 0.462491 0.472366 0.473527 0.468725 0.48221 0.518301 0.492911 0.528055 
+[wall_follower_node-1] RIGHT:       1.57662 1.61438 1.65083 1.68952 1.75136 1.77082 1.7387 1.7454 1.73079 1.7068 0.645231 0.610576 0.600208 0.561218 0.543282 0.548382 0.566944 0.571108 0.604126 0.701579 0.668305 0.725487 0.729001 1.52484 0.568336 0.535688 0.54045 0.534014 0.54425 0.514765 0.531194 0.493416 0.561363 0.670206 1.5081 1.50229 1.49827 1.49677 1.4933 1.49153 1.48279 1.50418 1.49185 1.50343 1.47932 1.50758 1.51364 1.50397 1.52417 1.51588 1.51582 1.53555 1.55539 1.52912 1.55688 1.5541 1.57149 1.563 1.59602 1.61538 1.59902 1.61865 1.63863 1.65412 0.838096 0.808221 0.853622 0.812183 0.816409 0.843663 1.78454 1.79552 1.80359 1.8231 0.611285 0.63013 0.621626 0.618696 0.629264 0.611871 0.639548 0.636111 0.623273 1.5535 1.50684 1.50479 1.47019 1.44448 1.42715 1.41913 
+[wall_follower_node-1] FRONT RIGHT: 1.10188 1.1163 1.09492 1.11184 1.09351 1.11563 1.08575 1.09064 1.10334 1.09704 1.10626 1.09326 1.10225 1.11434 1.09945 
+[wall_follower_node-1] [0m[INFO] [1737826331.432935988] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.432977211] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.486314897] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.486417555] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.492951309] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.493372996] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.497233621] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.064143, Y = 0.503495, Yaw = -0.000489
+[wall_follower_node-1] CURR: X = 0.067504, Y = 0.503907, Yaw = -0.000509
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.497574401] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.226449, dY = 0.906091
+[wall_follower_node-1] FRONT RIGHT: dX = 0.154874, dY = 1.074652
+[wall_follower_node-1] LEFT:        dX = 0.296077, dY = 0.089581
+[wall_follower_node-1] RIGHT:       dX = 0.479949, dY = 0.114491
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.586328294] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.586406838] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.592589080] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.067504, Y = 0.503907, Yaw = -0.000509
+[wall_follower_node-1] CURR: X = 0.070863, Y = 0.504341, Yaw = -0.000523
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.592639410] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.226449, dY = 0.906091
+[wall_follower_node-1] FRONT RIGHT: dX = 0.154874, dY = 1.074652
+[wall_follower_node-1] LEFT:        dX = 0.296077, dY = 0.089581
+[wall_follower_node-1] RIGHT:       dX = 0.479949, dY = 0.114491
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.609615659] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.609671418] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.310019, MIN ANGLE = 1.416936
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.514372, MIN ANGLE = 4.425738
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.885997, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.075082, MIN ANGLE = 6.140056
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.1173 1.10177 1.10426 1.09938 1.09401 1.12062 1.13203 1.1348 1.13384 1.12666 1.05791 1.00186 0.983716 0.905951 0.885997 
+[wall_follower_node-1] LEFT:        0.413457 0.402971 0.411219 0.385777 0.390784 0.381029 0.388431 0.372948 0.368968 0.385545 0.372594 0.361143 0.361816 0.358221 0.375719 0.35708 0.359631 0.342023 0.356466 0.357115 0.330136 0.335907 0.350525 0.326965 0.336983 0.335406 0.336509 0.32265 0.35061 0.333847 0.347917 0.333105 0.328137 0.340903 0.347127 0.325639 0.310019 0.340446 0.328915 0.330963 0.33387 0.329781 0.351142 0.329735 0.337187 0.314568 0.331997 0.334173 0.339489 0.335935 0.314686 0.334797 0.333641 0.356321 0.362105 0.328641 0.332875 0.353349 0.359145 0.364539 0.356504 0.36463 0.362701 0.388375 0.348411 0.362478 0.379859 0.379872 0.389304 0.38419 0.394875 0.393435 0.394895 0.416709 0.410787 0.412246 0.427509 0.426881 0.421794 0.44718 0.453425 0.467723 0.472216 0.466026 0.47796 0.502434 0.49464 0.516558 0.516822 0.535886 
+[wall_follower_node-1] RIGHT:       1.64455 1.69637 1.72724 1.7715 1.7544 1.74349 1.73531 1.7112 0.632739 0.602232 0.603487 0.58032 0.552581 0.551204 0.555643 0.601859 0.596553 0.685699 0.691698 0.73323 0.762762 1.54696 0.586955 0.54853 0.532259 0.535009 0.534454 0.519053 0.514372 0.525354 0.581957 0.683038 1.48651 1.48551 1.50236 1.49453 1.49333 1.4814 1.48285 1.47448 1.50318 1.50632 1.49811 1.50246 1.49218 1.49567 1.4964 1.52068 1.52009 1.52797 1.52063 1.54495 1.54762 1.58173 1.55814 1.57183 1.57206 1.59592 1.60665 1.6127 1.62056 1.64782 0.835746 0.826342 0.818789 0.832098 0.826073 0.826377 0.829978 1.7669 1.80768 1.81361 0.623646 0.604881 0.61647 0.608976 0.622836 0.625541 0.626612 0.614202 0.625394 1.55603 1.51609 1.50532 1.49116 1.43952 1.41835 1.40053 1.37991 1.36661 
+[wall_follower_node-1] FRONT RIGHT: 1.08365 1.08207 1.09373 1.09055 1.08514 1.08659 1.07508 1.09117 1.0911 1.07785 1.09737 1.08602 1.10809 1.11053 1.09695 
+[wall_follower_node-1] [0m[INFO] [1737826331.610096427] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.070863, Y = 0.504341, Yaw = -0.000523
+[wall_follower_node-1] CURR: X = 0.074218, Y = 0.504800, Yaw = -0.000529
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.610129385] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.214820, dY = 0.859559
+[wall_follower_node-1] FRONT RIGHT: dX = 0.153351, dY = 1.064088
+[wall_follower_node-1] LEFT:        dX = 0.306356, dY = 0.047512
+[wall_follower_node-1] RIGHT:       dX = 0.493383, dY = 0.145434
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.612937374] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.612970382] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.634377202] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.074218, Y = 0.504800, Yaw = -0.000529
+[wall_follower_node-1] CURR: X = 0.077570, Y = 0.505281, Yaw = -0.000528
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.634437198] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.214820, dY = 0.859559
+[wall_follower_node-1] FRONT RIGHT: dX = 0.153351, dY = 1.064088
+[wall_follower_node-1] LEFT:        dX = 0.306356, dY = 0.047512
+[wall_follower_node-1] RIGHT:       dX = 0.493383, dY = 0.145434
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.642942857] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.642984736] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.686318406] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.686387827] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.696804911] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.077570, Y = 0.505281, Yaw = -0.000528
+[wall_follower_node-1] CURR: X = 0.080918, Y = 0.505785, Yaw = -0.000526
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.696865965] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.214820, dY = 0.859559
+[wall_follower_node-1] FRONT RIGHT: dX = 0.153351, dY = 1.064088
+[wall_follower_node-1] LEFT:        dX = 0.306356, dY = 0.047512
+[wall_follower_node-1] RIGHT:       dX = 0.493383, dY = 0.145434
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.702951606] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.703032833] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.732944021] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.732986818] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.762943822] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.762995061] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.788454976] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.788515681] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.306320, MIN ANGLE = 1.381950
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.487412, MIN ANGLE = 4.408245
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.834874, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.060331, MIN ANGLE = 6.122562
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.07914 1.09185 1.08216 1.09339 1.09467 1.12318 1.11302 1.10679 1.08895 1.06042 1.00599 0.958324 0.891897 0.871341 0.834874 
+[wall_follower_node-1] LEFT:        0.387441 0.383038 0.383746 0.384789 0.384145 0.363599 0.375372 0.370249 0.35826 0.372238 0.355138 0.363998 0.372211 0.367086 0.358824 0.368748 0.353577 0.337247 0.346361 0.335086 0.329876 0.330188 0.329409 0.345624 0.33371 0.32435 0.340885 0.343524 0.326813 0.349966 0.341437 0.336392 0.33033 0.327424 0.30632 0.314802 0.324979 0.332111 0.333102 0.361122 0.328379 0.31911 0.344797 0.335374 0.325068 0.336176 0.3166 0.337615 0.336814 0.332912 0.332159 0.337427 0.352978 0.327724 0.328065 0.345141 0.324139 0.330846 0.368763 0.364917 0.340888 0.369531 0.369548 0.362594 0.37063 0.370266 0.372488 0.39611 0.371985 0.389393 0.403152 0.397079 0.414437 0.411522 0.403544 0.418348 0.439172 0.439552 0.426918 0.448784 0.46271 0.45088 0.469151 0.461634 0.47924 0.486085 0.519468 0.537179 0.540397 0.54001 
+[wall_follower_node-1] RIGHT:       1.70528 1.74697 1.77738 1.75059 1.74415 1.72132 1.71782 0.628661 0.590617 0.588267 0.567249 0.558935 0.579429 0.59168 0.611424 0.704403 0.707419 0.711926 0.759485 1.57045 0.557814 0.560519 0.557841 0.54267 0.510956 0.524902 0.52468 0.487412 0.592429 0.664011 1.49804 1.47178 1.49752 1.48876 1.48909 1.48442 1.47786 1.49062 1.47853 1.51325 1.51406 1.48758 1.50783 1.50468 1.49231 1.5158 1.53105 1.52771 1.52737 1.53184 1.54299 1.55947 1.54844 1.56755 1.58493 1.59229 1.59698 1.60546 1.60217 1.60895 0.828821 0.814862 0.806882 0.82443 0.828108 0.811246 0.812387 1.75703 1.75573 1.79376 0.620012 0.607049 0.618746 0.622384 0.605461 0.61407 0.616633 0.606695 0.618599 1.56486 1.52124 1.50429 1.46929 1.46632 1.42445 1.40689 1.40567 1.38295 1.36168 1.34228 
+[wall_follower_node-1] FRONT RIGHT: 1.06579 1.0694 1.08023 1.0768 1.10417 1.06033 1.06124 1.07703 1.06968 1.07696 1.07641 1.08451 1.07347 1.09459 1.08425 
+[wall_follower_node-1] [0m[INFO] [1737826331.788709703] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.080918, Y = 0.505785, Yaw = -0.000526
+[wall_follower_node-1] CURR: X = 0.084263, Y = 0.506311, Yaw = -0.000526
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.788754893] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.202425, dY = 0.809962
+[wall_follower_node-1] FRONT RIGHT: dX = 0.169582, dY = 1.046682
+[wall_follower_node-1] LEFT:        dX = 0.300874, dY = 0.057504
+[wall_follower_node-1] RIGHT:       dX = 0.465042, dY = 0.145968
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.792939196] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.792978723] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.793510372] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.084263, Y = 0.506311, Yaw = -0.000526
+[wall_follower_node-1] CURR: X = 0.087606, Y = 0.506860, Yaw = -0.000532
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.793550963] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.202425, dY = 0.809962
+[wall_follower_node-1] FRONT RIGHT: dX = 0.169582, dY = 1.046682
+[wall_follower_node-1] LEFT:        dX = 0.300874, dY = 0.057504
+[wall_follower_node-1] RIGHT:       dX = 0.465042, dY = 0.145968
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.805441916] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.087606, Y = 0.506860, Yaw = -0.000532
+[wall_follower_node-1] CURR: X = 0.090945, Y = 0.507432, Yaw = -0.000543
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.805484221] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.202425, dY = 0.809962
+[wall_follower_node-1] FRONT RIGHT: dX = 0.169582, dY = 1.046682
+[wall_follower_node-1] LEFT:        dX = 0.300874, dY = 0.057504
+[wall_follower_node-1] RIGHT:       dX = 0.465042, dY = 0.145968
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.821357804] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.824539952] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.304911, MIN ANGLE = 1.137047
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.512029, MIN ANGLE = 4.338273
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.787457, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.054606, MIN ANGLE = 6.140056
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.824034249] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.824804058] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.08959 1.09185 1.08995 1.10991 1.09263 1.11293 1.10886 1.08627 1.03762 1.01108 0.932429 0.898596 0.838911 0.832255 0.787457 
+[wall_follower_node-1] LEFT:        0.402937 0.403063 0.377506 0.382933 0.387841 0.38676 0.384981 0.378405 0.366786 0.35705 0.346738 0.35014 0.343789 0.346437 0.347901 0.346236 0.352775 0.364841 0.33408 0.336307 0.304911 0.331927 0.337134 0.325553 0.318807 0.340323 0.343161 0.325921 0.309881 0.310164 0.331295 0.329094 0.326722 0.314439 0.314648 0.321158 0.328048 0.330695 0.329091 0.324749 0.338331 0.325997 0.333415 0.323466 0.344507 0.322165 0.317063 0.324913 0.334443 0.319662 0.344147 0.334625 0.339039 0.351274 0.348107 0.361561 0.341563 0.364677 0.375671 0.359697 0.362213 0.357446 0.37743 0.350911 0.383092 0.386257 0.384292 0.369129 0.387066 0.403516 0.394926 0.394131 0.414563 0.420823 0.423234 0.451743 0.421522 0.446599 0.452404 0.443477 0.459958 0.481777 0.479962 0.504768 0.490025 0.514431 0.527197 0.526771 0.548613 0.56445 
+[wall_follower_node-1] RIGHT:       1.76926 1.77121 1.74671 1.7426 1.72871 0.612865 0.615795 0.59938 0.572181 0.553697 0.572171 0.609884 0.624889 0.709454 0.682842 0.725599 0.747082 1.57128 0.566087 0.554583 0.551573 0.54678 0.521656 0.512029 0.535774 0.526306 0.582542 0.675096 1.50076 1.485 1.48172 1.50166 1.48897 1.48649 1.49036 1.4945 1.49043 1.49045 1.48539 1.48799 1.48795 1.49735 1.50811 1.51735 1.50629 1.51664 1.51911 1.52456 1.53392 1.56652 1.53108 1.5622 1.56754 1.58325 1.60872 1.58116 1.60142 1.60762 0.813251 0.830274 0.822618 0.830717 0.795614 0.829772 0.814267 1.74956 1.761 1.76673 0.583876 0.601553 0.595532 0.603007 0.604781 0.627954 0.613611 0.60547 0.616535 1.56652 1.54296 1.5032 1.477 1.46363 1.41764 1.41578 1.38585 1.38223 1.36038 1.34678 1.32689 1.30812 
+[wall_follower_node-1] FRONT RIGHT: 1.0713 1.07424 1.06819 1.06289 1.05913 1.06531 1.05461 1.05795 1.05673 1.05967 1.06115 1.07534 1.07861 1.07988 1.08955 
+[wall_follower_node-1] [0m[INFO] [1737826331.829462363] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.090945, Y = 0.507432, Yaw = -0.000543
+[wall_follower_node-1] CURR: X = 0.094280, Y = 0.508027, Yaw = -0.000561
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.829513922] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.190928, dY = 0.763960
+[wall_follower_node-1] FRONT RIGHT: dX = 0.150431, dY = 1.043822
+[wall_follower_node-1] LEFT:        dX = 0.276675, dY = 0.128147
+[wall_follower_node-1] RIGHT:       dX = 0.476613, dY = 0.187121
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.851329090] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.094280, Y = 0.508027, Yaw = -0.000561
+[wall_follower_node-1] CURR: X = 0.097612, Y = 0.508645, Yaw = -0.000586
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.851393933] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.190928, dY = 0.763960
+[wall_follower_node-1] FRONT RIGHT: dX = 0.150431, dY = 1.043822
+[wall_follower_node-1] LEFT:        dX = 0.276675, dY = 0.128147
+[wall_follower_node-1] RIGHT:       dX = 0.476613, dY = 0.187121
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.852950127] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.852988577] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.886328144] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.886425996] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.986324783] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.986414228] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.987593101] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.097612, Y = 0.508645, Yaw = -0.000586
+[wall_follower_node-1] CURR: X = 0.100941, Y = 0.509285, Yaw = -0.000618
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.987703768] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.190928, dY = 0.763960
+[wall_follower_node-1] FRONT RIGHT: dX = 0.150431, dY = 1.043822
+[wall_follower_node-1] LEFT:        dX = 0.276675, dY = 0.128147
+[wall_follower_node-1] RIGHT:       dX = 0.476613, dY = 0.187121
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.991666550] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826331.991712077] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.301750, MIN ANGLE = 1.504401
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.522993, MIN ANGLE = 4.285794
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.761194, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.042322, MIN ANGLE = 6.175042
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.07546 1.07913 1.08428 1.08325 1.09755 1.11582 1.08019 1.02505 0.956783 0.934155 0.885336 0.862217 0.807162 0.778862 0.761194 
+[wall_follower_node-1] LEFT:        0.387854 0.381042 0.366754 0.362899 0.369805 0.382124 0.388413 0.364208 0.360457 0.369317 0.356008 0.37416 0.354421 0.350398 0.334049 0.36828 0.3399 0.340281 0.317889 0.322672 0.333914 0.332984 0.333955 0.347755 0.335405 0.322942 0.33331 0.322877 0.326381 0.332428 0.319059 0.311924 0.314109 0.332242 0.323622 0.314875 0.315005 0.330911 0.325577 0.318922 0.331641 0.30175 0.314816 0.340986 0.333791 0.346084 0.341651 0.328884 0.340057 0.335059 0.34275 0.3252 0.346371 0.331037 0.33338 0.349753 0.342362 0.358142 0.355087 0.362049 0.361292 0.367459 0.376985 0.358333 0.390476 0.380005 0.356249 0.396978 0.39586 0.39347 0.393194 0.396067 0.409023 0.418337 0.415907 0.443484 0.448874 0.45234 0.453357 0.473366 0.473657 0.482891 0.483045 0.499188 0.503738 0.531312 0.533136 0.549413 0.549276 0.573892 
+[wall_follower_node-1] RIGHT:       1.7801 1.77881 1.74316 0.62399 0.613693 0.594896 0.576556 0.561571 0.582545 0.594338 0.622622 0.652303 0.725445 0.702907 0.751715 0.800835 0.568793 0.571003 0.553113 0.538296 0.522993 0.523861 0.527732 0.541862 0.600169 0.684171 1.49708 1.52303 1.49588 1.49916 1.51571 1.50717 1.48563 1.49443 1.50075 1.48516 1.48968 1.49497 1.50378 1.5032 1.51331 1.52307 1.52036 1.49396 1.5067 1.52849 1.53315 1.55236 1.54644 1.56547 1.57744 1.55904 1.56053 1.58502 1.61216 1.6117 0.812286 0.835594 0.813964 0.817914 0.812831 0.827464 0.79049 1.73154 1.73777 1.75354 0.595088 0.590259 0.609278 0.60061 0.587148 0.61426 0.604129 0.615024 0.602703 1.58119 1.55407 1.55079 1.47149 1.4789 1.43755 1.41793 1.40155 1.40013 1.35204 1.34465 1.31794 1.30667 1.28466 1.27541 
+[wall_follower_node-1] FRONT RIGHT: 1.05312 1.05523 1.06766 1.0663 1.07754 1.04434 1.06221 1.04674 1.04232 1.06453 1.06508 1.05513 1.06644 1.08252 1.0877 
+[wall_follower_node-1] [0m[INFO] [1737826331.992089618] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.100941, Y = 0.509285, Yaw = -0.000618
+[wall_follower_node-1] CURR: X = 0.104265, Y = 0.509948, Yaw = -0.000658
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826331.992122118] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.184560, dY = 0.738481
+[wall_follower_node-1] FRONT RIGHT: dX = 0.112501, dY = 1.036233
+[wall_follower_node-1] LEFT:        dX = 0.301085, dY = 0.020020
+[wall_follower_node-1] RIGHT:       dX = 0.476123, dY = 0.216401
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.000402318] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.104265, Y = 0.509948, Yaw = -0.000658
+[wall_follower_node-1] CURR: X = 0.107585, Y = 0.510634, Yaw = -0.000701
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.000448569] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.184560, dY = 0.738481
+[wall_follower_node-1] FRONT RIGHT: dX = 0.112501, dY = 1.036233
+[wall_follower_node-1] LEFT:        dX = 0.301085, dY = 0.020020
+[wall_follower_node-1] RIGHT:       dX = 0.476123, dY = 0.216401
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.002939183] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.002986132] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.016135400] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.107585, Y = 0.510634, Yaw = -0.000701
+[wall_follower_node-1] CURR: X = 0.110899, Y = 0.511342, Yaw = -0.000744
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.016184643] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.184560, dY = 0.738481
+[wall_follower_node-1] FRONT RIGHT: dX = 0.112501, dY = 1.036233
+[wall_follower_node-1] LEFT:        dX = 0.301085, dY = 0.020020
+[wall_follower_node-1] RIGHT:       dX = 0.476123, dY = 0.216401
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.032384390] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.032442837] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.305281, MIN ANGLE = 1.329471
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.513132, MIN ANGLE = 4.285794
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.734425, MIN ANGLE = 0.227409
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.036849, MIN ANGLE = 6.070083
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.08088 1.08539 1.07979 1.09396 1.09585 1.08573 1.00649 0.95041 0.906331 0.888404 0.815153 0.83886 0.762253 0.734425 0.741146 
+[wall_follower_node-1] LEFT:        0.401413 0.396765 0.369777 0.378997 0.374038 0.359004 0.356619 0.35766 0.340287 0.346839 0.360127 0.369818 0.330232 0.348243 0.326388 0.323062 0.355169 0.32731 0.321434 0.327804 0.32804 0.337148 0.32965 0.331508 0.325754 0.328431 0.318016 0.322155 0.317261 0.317723 0.332996 0.305281 0.320831 0.329951 0.315618 0.320451 0.330838 0.339407 0.343945 0.308803 0.306449 0.33829 0.315966 0.34214 0.335866 0.32878 0.367579 0.349388 0.333281 0.33625 0.328269 0.352054 0.350515 0.368571 0.351063 0.333895 0.356354 0.374149 0.346591 0.358711 0.369885 0.381152 0.36654 0.382911 0.374065 0.389657 0.377757 0.415306 0.424671 0.387146 0.412761 0.390889 0.411754 0.449907 0.431716 0.445039 0.460061 0.458961 0.473584 0.468093 0.481053 0.490379 0.503166 0.520265 0.506514 0.538782 0.5434 0.553019 0.557813 0.578692 
+[wall_follower_node-1] RIGHT:       1.7684 0.643999 0.619519 0.597943 0.584955 0.573895 0.566766 0.620838 0.617653 0.651745 0.704426 0.705964 0.756371 0.597914 0.575827 0.570154 0.559589 0.550551 0.535215 0.529969 0.513132 0.555818 0.622961 0.66501 0.783831 1.50017 1.49952 1.4807 1.49388 1.48703 1.48086 1.50422 1.50592 1.50179 1.48545 1.50163 1.49582 1.51583 1.5118 1.49426 1.49738 1.51269 1.51245 1.53571 1.53595 1.53101 1.53154 1.54164 1.54541 1.56499 1.58948 1.57296 1.57706 1.61149 1.6202 0.822722 0.80638 0.80943 0.813353 0.809636 0.812594 0.80812 1.70957 1.73639 0.590898 0.598165 0.602198 0.610631 0.591003 0.603102 0.571767 0.592104 0.60512 1.60423 1.55489 1.53271 1.49634 1.46567 1.44407 1.41722 1.39594 1.37114 1.38078 1.35095 1.33666 1.30401 1.27504 1.27602 1.26152 1.24648 
+[wall_follower_node-1] FRONT RIGHT: 1.04015 1.06102 1.03685 1.04781 1.06956 1.05591 1.06499 1.04425 1.06118 1.04975 1.06286 1.06745 1.06336 1.05497 1.08257 
+[wall_follower_node-1] [0m[INFO] [1737826332.032948166] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.032991137] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.038636375] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.110899, Y = 0.511342, Yaw = -0.000744
+[wall_follower_node-1] CURR: X = 0.114210, Y = 0.512073, Yaw = -0.000783
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.038850032] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.165579, dY = 0.715516
+[wall_follower_node-1] FRONT RIGHT: dX = 0.219286, dY = 1.013395
+[wall_follower_node-1] LEFT:        dX = 0.296434, dY = 0.072959
+[wall_follower_node-1] RIGHT:       dX = 0.467145, dY = 0.212321
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.086325466] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.086398000] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.092968903] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.093026290] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.094015114] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.114210, Y = 0.512073, Yaw = -0.000783
+[wall_follower_node-1] CURR: X = 0.117514, Y = 0.512826, Yaw = -0.000815
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.094063110] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.165579, dY = 0.715516
+[wall_follower_node-1] FRONT RIGHT: dX = 0.219286, dY = 1.013395
+[wall_follower_node-1] LEFT:        dX = 0.296434, dY = 0.072959
+[wall_follower_node-1] RIGHT:       dX = 0.467145, dY = 0.212321
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.122953650] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.123014739] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.126198214] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.117514, Y = 0.512826, Yaw = -0.000815
+[wall_follower_node-1] CURR: X = 0.120813, Y = 0.513601, Yaw = -0.000836
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.126337432] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.165579, dY = 0.715516
+[wall_follower_node-1] FRONT RIGHT: dX = 0.219286, dY = 1.013395
+[wall_follower_node-1] LEFT:        dX = 0.296434, dY = 0.072959
+[wall_follower_node-1] RIGHT:       dX = 0.467145, dY = 0.212321
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.186355055] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.186430577] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.193908859] [wall_follower_node]: LASER SCAN CALLBACK: running callback[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.194106817] [wall_follower_node]: 
+[wall_follower_node-1] CURRENT STATE
+[wall_follower_node-1] =============
+[wall_follower_node-1] LEFT:        SIZE = 90, MIN VALUE = 0.304904, MIN ANGLE = 1.276992
+[wall_follower_node-1] RIGHT:       SIZE = 90, MIN VALUE = 0.520789, MIN ANGLE = 4.250808
+[wall_follower_node-1] FRONT LEFT:  SIZE = 15, MIN VALUE = 0.696262, MIN ANGLE = 0.244902
+[wall_follower_node-1] FRONT RIGHT: SIZE = 15, MIN VALUE = 1.032476, MIN ANGLE = 6.070083
+[wall_follower_node-1] [0m
+[wall_follower_node-1] SCAN RANGES:
+[wall_follower_node-1] ===========
+[wall_follower_node-1] FRONT LEFT:  1.06736 1.04931 1.07798 1.08865 1.06149 0.996023 0.952604 0.903149 0.880701 0.828065 0.778239 0.778273 0.749046 0.706279 0.696262 
+[wall_follower_node-1] LEFT:        0.377686 0.379846 0.363825 0.372311 0.343744 0.341331 0.35969 0.353874 0.358789 0.371999 0.342039 0.333358 0.33088 0.319798 0.321937 0.335877 0.317029 0.330714 0.331383 0.323606 0.320514 0.337879 0.323346 0.336673 0.333297 0.314059 0.327831 0.332529 0.304904 0.316848 0.33802 0.32195 0.326444 0.32405 0.323243 0.333712 0.30696 0.318395 0.310448 0.314918 0.316024 0.332574 0.321953 0.330516 0.325263 0.318517 0.339211 0.328779 0.322854 0.343711 0.329946 0.342653 0.343892 0.346896 0.347528 0.35145 0.357074 0.347295 0.358794 0.361298 0.370302 0.369778 0.372657 0.385674 0.381829 0.373919 0.396349 0.390286 0.404688 0.402193 0.409692 0.400825 0.446217 0.4446 0.418189 0.446906 0.467217 0.459717 0.450432 0.470451 0.489683 0.488932 0.49987 0.542184 0.540038 0.536249 0.576343 0.579828 0.599715 0.620208 
+[wall_follower_node-1] RIGHT:       0.621864 0.614087 0.585704 0.58114 0.595888 0.611753 0.640355 0.655279 0.722039 0.707289 0.748764 0.600122 0.593137 0.569512 0.543871 0.552899 0.538868 0.530605 0.520789 0.561414 0.619089 0.665732 0.756118 1.50588 1.49287 1.49781 1.51639 1.48537 1.51046 1.51172 1.49436 1.49007 1.50078 1.48514 1.49234 1.48225 1.51283 1.50454 1.51268 1.50142 1.51059 1.51546 1.52408 1.53284 1.53352 1.53736 1.54867 1.56402 1.55918 1.56361 1.58599 1.59636 1.60462 0.823243 0.811455 0.793812 0.789753 0.809304 0.783742 0.791495 1.72018 1.74026 0.565073 0.600424 0.586592 0.574631 0.590417 0.585636 0.575171 0.59509 0.603716 1.59679 1.57886 1.52543 1.5075 1.48393 1.48228 1.4378 1.4146 1.3928 1.36331 1.35353 1.33172 1.30304 1.28272 1.28303 1.24779 1.25518 1.22759 1.22241 
+[wall_follower_node-1] FRONT RIGHT: 1.04303 1.04204 1.03248 1.03987 1.04758 1.04031 1.0501 1.04683 1.03602 1.05923 1.05629 1.06863 1.0618 1.06343 1.05733 
+[wall_follower_node-1] [0m[INFO] [1737826332.197522330] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.120813, Y = 0.513601, Yaw = -0.000836
+[wall_follower_node-1] CURR: X = 0.124106, Y = 0.514399, Yaw = -0.000847
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.197617730] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.168817, dY = 0.675486
+[wall_follower_node-1] FRONT RIGHT: dX = 0.218361, dY = 1.009121
+[wall_follower_node-1] LEFT:        dX = 0.291839, dY = 0.088299
+[wall_follower_node-1] RIGHT:       dX = 0.466288, dY = 0.231941
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.212412502] [wall_follower_node]: 
+[wall_follower_node-1] ODOM STATES
+[wall_follower_node-1] ===========
+[wall_follower_node-1] PREV: X = 0.124106, Y = 0.514399, Yaw = -0.000847
+[wall_follower_node-1] CURR: X = 0.127393, Y = 0.515218, Yaw = -0.000846
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.212483674] [wall_follower_node]: 
+[wall_follower_node-1] ODOM DISTANCES
+[wall_follower_node-1] ==============
+[wall_follower_node-1] FRONT LEFT:  dX = 0.168817, dY = 0.675486
+[wall_follower_node-1] FRONT RIGHT: dX = 0.218361, dY = 1.009121
+[wall_follower_node-1] LEFT:        dX = 0.291839, dY = 0.088299
+[wall_follower_node-1] RIGHT:       dX = 0.466288, dY = 0.231941
+[wall_follower_node-1] [0m
+[wall_follower_node-1] [0m[INFO] [1737826332.212954879] [wall_follower_node]: CONTROLLER CALLBACK: running[0m
+[wall_follower_node-1] [0m[INFO] [1737826332.213004789] [wall_follower_node]: 
+[wall_follower_node-1] NEXT VEL CMD
+[wall_follower_node-1] ============
+[wall_follower_node-1] LIN: X = 0.100000, Y = 0.000000, Z = 0.000000
+[wall_follower_node-1] ANG: X = 0.000000, Y = 0.000000, Z = 0.200000
+[wall_follower_node-1] WALL FOUND: TRUE: 2[0m
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[wall_follower_node-1] [0m[INFO] [1737826332.213631836] [rclcpp]: signal_handler(signal_value=2)[0m
+[INFO] [wall_follower_node-1]: process has finished cleanly [pid 16887]
