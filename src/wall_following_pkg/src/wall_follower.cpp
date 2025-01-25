@@ -130,14 +130,14 @@ public:
     // config, or launch, file. Hard coded here for now. initilize controller
     curr_state_.controller_infos =
         ControllerInfos{0.0,   // linear stop
-                        0.01,  // linear slow
+                        0.05,  // linear slow
                         0.1,   // linear fast
                         0.0,   // angular stop
                         0.02,  // angular slow
-                        0.2,   // angular fast
+                        0.5,   // angular fast
                         0.5,   // Front threshold for obstacle and walls
                         0.2,   // side minimum follow distance
-                        0.3,   // side maximum follow distance
+                        0.22,  // side maximum follow distance
                         false, // wall found
                         WallFollowingDirection::NotFound,
                         geometry_msgs::msg::Twist()};
@@ -233,14 +233,10 @@ private:
       auto wall_chosen = curr_state_.controller_infos.direction_to_follow;
       auto turn_left = curr_state_.controller_infos.angular_velocity_fast;
       auto turn_right = -1 * curr_state_.controller_infos.angular_velocity_fast;
-      // NOTE: I have front wall broken into a left and right section due to how
-      // the laser scanner works.
-      auto dist_to_front = wall_chosen == WallFollowingDirection::LeftHandSide
-                               ? dist_to_front_left
-                               : dist_to_front_right;
 
       // We have encountered something in front of us
-      if (dist_to_front < front_threshold) {
+      if (dist_to_front_left < front_threshold ||
+          dist_to_front_right < front_threshold) {
         // Set linear velocity to slow
         curr_state_.controller_infos.next_command.linear.x =
             curr_state_.controller_infos.linear_velocity_slow;
@@ -339,23 +335,6 @@ private:
         calculate_heading_in_rad(msg->pose.pose.orientation);
 
     // calculate/store distances
-    // curr_state_.odom_infos.distance_front_left =
-    // calculate_vector_differences(
-    //     curr_state_.odom_infos.pose.pose.position,
-    //     calculate_vector_components(curr_state_.range_infos.min_front_left));
-
-    // curr_state_.odom_infos.distance_front_right =
-    // calculate_vector_differences(
-    //     curr_state_.odom_infos.pose.pose.position,
-    //     calculate_vector_components(curr_state_.range_infos.min_front_right));
-
-    // curr_state_.odom_infos.distance_left = calculate_vector_differences(
-    //     curr_state_.odom_infos.pose.pose.position,
-    //     calculate_vector_components(curr_state_.range_infos.min_left));
-
-    // curr_state_.odom_infos.distance_right = calculate_vector_differences(
-    //     curr_state_.odom_infos.pose.pose.position,
-    //     calculate_vector_components(curr_state_.range_infos.min_right));
     curr_state_.odom_infos.distance_front_left =
         calculate_vector_components(curr_state_.range_infos.min_front_left);
 
@@ -592,6 +571,7 @@ private:
                       curr_state_.range_infos.angle_rad_increment;
     curr_state_.range_infos.min_right = {*it, min_value_angle};
 
+    prev_state_ = curr_state_;
     print_range_infos();
     return true;
   }
