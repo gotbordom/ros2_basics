@@ -130,14 +130,14 @@ public:
     // config, or launch, file. Hard coded here for now. initilize controller
     curr_state_.controller_infos =
         ControllerInfos{0.0,   // linear stop
-                        0.05,  // linear slow
+                        0.01,  // linear slow
                         0.1,   // linear fast
                         0.0,   // angular stop
-                        0.02,  // angular slow
-                        0.5,   // angular fast
+                        0.2,   // angular slow
+                        0.2,   // angular fast
                         0.5,   // Front threshold for obstacle and walls
                         0.2,   // side minimum follow distance
-                        0.22,  // side maximum follow distance
+                        0.3,   // side maximum follow distance
                         false, // wall found
                         WallFollowingDirection::NotFound,
                         geometry_msgs::msg::Twist()};
@@ -165,8 +165,10 @@ public:
                   std::placeholders::_1),
         options2);
 
+    // The scanner is publishing ~ 8Hz or every 125ms.
+    // So I want to publish commands at the same or slower (5Hz).
     controller_timer = this->create_wall_timer(
-        10ms, std::bind(&WallFollowerNode::controller_callback, this),
+        200ms, std::bind(&WallFollowerNode::controller_callback, this),
         callback_group_3_);
 
     cmd_vel_pub_ =
@@ -235,16 +237,21 @@ private:
       // We have encountered something in front of us
       if (dist_to_front_left < front_threshold ||
           dist_to_front_right < front_threshold) {
+
         // Set linear velocity to slow
         curr_state_.controller_infos.next_command.linear.x =
             curr_state_.controller_infos.linear_velocity_slow;
 
         // following left so turn right to avoid collision
         if (wall_chosen == WallFollowingDirection::LeftHandSide) {
+          RCLCPP_INFO(this->get_logger(),
+                      "CONTROLLER CALLBACK: WALL IN FRONT: TURNING RIGHT");
           curr_state_.controller_infos.next_command.angular.z = turn_right;
         }
         // following right so turn left to avoid collision
         else if (wall_chosen == WallFollowingDirection::RightHandSide) {
+          RCLCPP_INFO(this->get_logger(),
+                      "CONTROLLER CALLBACK: WALL IN FRONT: TURNING LEFT");
           curr_state_.controller_infos.next_command.angular.z = turn_left;
         }
         // otherwise we don't do anything an drop through
