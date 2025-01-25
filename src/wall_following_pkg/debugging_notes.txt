@@ -114,3 +114,18 @@ I suspect I am setting to wide a front wall scan angle. Instead of 90degrees I a
 2.) Range min/max look fine. Running the cos() sin() in wolfram alpha for confirmation looks 
     like I am doing them backwards - though the number don't. Yeah RIGHT side is backwards
     too, I have my x= cos and y=sin backwards
+
+=========================================================================================
+CHANGES MADE FOR NEXT DEBUG
+===========================
+
+1. NICE so it drives to the wall as expected, Just turns too slow. Confriming logs to see 
+   if anything else looks off.
+
+Yeah so far all looks good. Just need to tune drive and turn speed since this 
+isn't a proprotional wall follower.
+
+Seems like the faster it drives the less change it can correct. This does make  
+sense since I am Turning with 1 m/sec in a 2x2 m box with a fast speed of .3 m/s
+
+I guess perhaps I should really slow down

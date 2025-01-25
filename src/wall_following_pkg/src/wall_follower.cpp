@@ -130,10 +130,10 @@ public:
     // config, or launch, file. Hard coded here for now. initilize controller
     curr_state_.controller_infos =
         ControllerInfos{0.0,   // linear stop
-                        0.1,   // linear slow
-                        0.2,   // linear fast
+                        0.01,  // linear slow
+                        0.1,   // linear fast
                         0.0,   // angular stop
-                        0.1,   // angular slow
+                        0.02,  // angular slow
                         0.2,   // angular fast
                         0.5,   // Front threshold for obstacle and walls
                         0.2,   // side minimum follow distance
@@ -245,11 +245,11 @@ private:
         curr_state_.controller_infos.next_command.linear.x =
             curr_state_.controller_infos.linear_velocity_slow;
 
-        // turn right
+        // following left so turn right to avoid collision
         if (wall_chosen == WallFollowingDirection::LeftHandSide) {
           curr_state_.controller_infos.next_command.angular.z = turn_right;
         }
-        // turn left
+        // following right so turn left to avoid collision
         else if (wall_chosen == WallFollowingDirection::RightHandSide) {
           curr_state_.controller_infos.next_command.angular.z = turn_left;
         }
