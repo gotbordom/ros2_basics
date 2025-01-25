@@ -177,7 +177,7 @@ private:
   /// @brief   The controller callback in charge of publishing velocity values
   ///          based on the current state of the robot.
   auto controller_callback() -> void {
-    RCLCPP_INFO(this->get_logger(), "CONTROLLER CALLBACK: running");
+    auto start_time = std::chrono::high_resolution_clock::now();
 
     /// NOTE: Remember X is forward Y is left Z is up.
     auto dist_to_front_left = curr_state_.odom_infos.distance_front_left.x;
@@ -289,6 +289,14 @@ private:
 
     print_next_command();
     cmd_vel_pub_->publish(curr_state_.controller_infos.next_command);
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+                        end_time - start_time)
+                        .count();
+    RCLCPP_INFO(this->get_logger(),
+                "CONTROLLER CALLBACK: execution time: %ld microseconds",
+                duration);
   }
 
   auto print_next_command() -> void {
@@ -313,6 +321,7 @@ private:
   /// @brief   The odometry callback is in charge of determining the previous,
   ///          and current, state of the robot given sensor data
   auto odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) -> void {
+    auto start_time = std::chrono::high_resolution_clock::now();
     if (!odom_setup_done_) {
       RCLCPP_INFO(this->get_logger(), "ODOMETRY CALLBACK: running setup");
       curr_state_.odom_infos.pose = msg->pose;
@@ -347,6 +356,13 @@ private:
 
     // now print out logging
     print_odom_infos();
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+                        end_time - start_time)
+                        .count();
+    RCLCPP_INFO(this->get_logger(),
+                "ODOM CALLBACK: execution time: %ld microseconds", duration);
   }
 
   auto calculate_heading_in_rad(const geometry_msgs::msg::Quaternion &q)
@@ -425,12 +441,12 @@ private:
   ///    are true.
   auto laser_scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
       -> void {
+
+    auto start_time = std::chrono::high_resolution_clock::now();
     if (!laser_scan_setup_done_) {
       RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running setup");
       laser_scan_setup_done_ = laser_scan_setup(msg);
     }
-
-    RCLCPP_INFO(this->get_logger(), "LASER SCAN CALLBACK: running callback");
 
     // Make sure to store current in previous state.
     prev_state_ = curr_state_;
@@ -482,6 +498,13 @@ private:
     curr_state_.range_infos.min_right = {*it, min_value_angle};
 
     print_range_infos();
+    auto end_time = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+                        end_time - start_time)
+                        .count();
+    RCLCPP_INFO(this->get_logger(),
+                "LASER SCAN CALLBACK: execution time: %ld microseconds",
+                duration);
   }
 
   //  TODO - This needs to be broken into smaller helper functions that can
