@@ -165,10 +165,8 @@ public:
                   std::placeholders::_1),
         options2);
 
-    // For now my laser scan  callback is doing... a lot and is slow. use 30ms
-    // timer
     controller_timer = this->create_wall_timer(
-        30ms, std::bind(&WallFollowerNode::controller_callback, this),
+        10ms, std::bind(&WallFollowerNode::controller_callback, this),
         callback_group_3_);
 
     cmd_vel_pub_ =
