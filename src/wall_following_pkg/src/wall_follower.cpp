@@ -127,11 +127,11 @@ public:
     // config, or launch, file. Hard coded here for now. initilize controller
     curr_state_.controller_infos =
         ControllerInfos{0.0,   // linear stop
-                        0.01,  // linear slow
-                        0.1,   // linear fast
+                        0.1,   // linear slow
+                        0.2,   // linear fast
                         0.0,   // angular stop
-                        0.01,  // angular slow
-                        0.1,   // angular fast
+                        0.1,   // angular slow
+                        0.2,   // angular fast
                         0.5,   // Front threshold for obstacle and walls
                         0.2,   // side minimum follow distance
                         0.3,   // side maximum follow distance
@@ -518,8 +518,8 @@ private:
     // Set the index values to use for each range.
     // Since each messaage gets a full 360 readings for a single 360 degree
     // rotation, these numbers are easier to use.
-    curr_state_.range_infos.idx_front_left = {0, 45};
-    curr_state_.range_infos.idx_front_right = {315, 360};
+    curr_state_.range_infos.idx_front_left = {0, 15};
+    curr_state_.range_infos.idx_front_right = {345, 360};
     curr_state_.range_infos.idx_left = {45, 135};
     curr_state_.range_infos.idx_right = {225, 315};
 

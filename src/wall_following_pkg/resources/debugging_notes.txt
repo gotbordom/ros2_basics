@@ -78,3 +78,10 @@ CHANGES MADE FOR NEXT DEBUG
 [wall_follower_node-1] RIGHT:       dX = 0.463292, dY = 0.093521
 
 a.) Found that I was logging the  same value  for both FRONT LEFT and FRONT RIGHT
+
+
+=========================================================================================
+CHANGES MADE FOR NEXT DEBUG
+===========================
+
+I suspect I am setting to wide a front wall scan angle. Instead of 90degrees I am using 30.
