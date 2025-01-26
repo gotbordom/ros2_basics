@@ -1,5 +1,11 @@
 # Wall Follower
 
+<p align="center">
+  <picture>
+    <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/wall_following_run.mp4?raw=true" alt="Wall Following Demo" style="width:50%; max-width:600px; height:auto;">
+  </picture>
+</p>
+
 ## Objective
 
 To write a wall following algorithm in C++ using the ROS2 Framework
