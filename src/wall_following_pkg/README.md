@@ -1,7 +1,7 @@
 # Wall Follower
 
 <p align="center"> 
-  <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/wall_following_run.mp4?raw=true" alt="Wall Following Demo" style="width:50%; max-width:600px; height:auto;">
+  <img src="https://github.com/gotbordom/ros2_basics/blob/master/src/wall_following_pkg/resources/wall_follow_run.gif?raw=true" alt="Wall Following Demo" style="width:100%; max-width:600px; height:auto;">
 </p>
 
 ## Objective
