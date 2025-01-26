@@ -530,8 +530,8 @@ private:
     // Set the index values to use for each range.
     // Since each messaage gets a full 360 readings for a single 360 degree
     // rotation, these numbers are easier to use.
-    curr_state_.range_infos.idx_front_left = {0, 15};
-    curr_state_.range_infos.idx_front_right = {345, 360};
+    curr_state_.range_infos.idx_front_left = {0, 5};
+    curr_state_.range_infos.idx_front_right = {355, 360};
     curr_state_.range_infos.idx_left = {45, 135};
     curr_state_.range_infos.idx_right = {225, 315};
 
